@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 class ClienteTest {
     @Test
     public void testClient(){
@@ -8,4 +10,5 @@ class ClienteTest {
         System.out.println(cliente.getEdad());
         System.out.println(cliente.getCi());
     }
+
 }
