@@ -19,7 +19,6 @@ class SalaTest {
         int cantidadFilas = 10;
         int columnas = capacidad/cantidadFilas;
         assertEquals(10,columnas);
-
     }
 
     @Test

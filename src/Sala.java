@@ -39,7 +39,6 @@ public class Sala {
                 codigosAsientoColumna[indexFila] = columnaLetra + (indexFila + 1);
             }
             //butacas.put(columnaLetra , codigosAsientoColumna);
-
         }
     }
 
