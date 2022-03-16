@@ -14,11 +14,13 @@ class SalaTest {
 
     @Test
     void generarButacasTest() {
+
         sala.generarButacas();
         int capacidad=100;
         int cantidadFilas = 10;
         int columnas = capacidad/cantidadFilas;
         assertEquals(10,columnas);
+
     }
 
     @Test
