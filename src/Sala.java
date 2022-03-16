@@ -29,8 +29,16 @@ public class Sala {
     }
 
     public void generarButacas(){
-        for (char letra: Utils.generarAbc(capacidad)) {
-            butacas.put(String.valueOf(letra), 0);
+        int cantidadFilas = 10;
+        int columnas = capacidad/cantidadFilas;
+        char[] columnasCodigos = Utils.generarAbc(columnas);
+        for (int indexColumn = 0; indexColumn < columnas; indexColumn++) {
+            String[] codigosAsientoColumna = new String[cantidadFilas];
+            String columnaLetra = String.valueOf(columnasCodigos[indexColumn]);
+            for (int indexFila = 0; indexFila < codigosAsientoColumna.length; indexFila++) {
+                codigosAsientoColumna[indexFila] = columnaLetra + (indexFila + 1);
+            }
+            //butacas.put(columnaLetra, codigosAsientoColumna);
         }
     }
 
