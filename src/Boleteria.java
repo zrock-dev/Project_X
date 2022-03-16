@@ -40,8 +40,8 @@ public class Boleteria {
 
     public void comprarBoleto(int ci, MetodoPago metodo, String columnaAsiento, int cantidadAsientos,
                               String codigoSala){
-        Boleto boleto = new Boleto(registroClientes.get(ci), precioPelicula, salaMap.get(codigoSala),"2D");
-        boleto.aplicarDescuento(metodo,Semana.DOMINGO,boleto.tipoPelicula);
+        Boleto boleto = new Boleto(registroClientes.get(ci), precioPelicula, salaMap.get(codigoSala));
+        boleto.aplicarDescuento(metodo,Semana.DOMINGO);
         boleto.comprarAsientos(columnaAsiento, cantidadAsientos);
     }
 
