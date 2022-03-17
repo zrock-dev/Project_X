@@ -30,4 +30,55 @@ public class Cliente {
     public void canjearPuntos(int puntosCanjeados){
         puntosTotales -= puntosCanjeados;
     }
+
+    public void setPuntosTotales(int puntos){this.puntosTotales=puntos;}
+
+
+
+    enum Premio {
+        BOLETO,PREMIOS
+    }
+    public String canjear(Cliente cliente, Cliente.Premio tipoPaquete, int promocion){
+        switch (tipoPaquete){
+            case BOLETO:
+                return paqueteBoletos(cliente, promocion);
+            case PREMIOS:
+                return paquetePremios(cliente, promocion);
+        }
+        return null;
+    }
+
+    public String paqueteBoletos(Cliente cliente, int promocion){
+        if (cliente.getPuntosTotales() >= 500 && promocion==1) {
+            cliente.canjearPuntos(500);
+            return ("+1 boleto");
+
+        }
+        if (cliente.getPuntosTotales()>=950 && promocion==2) {
+            cliente.canjearPuntos(950);
+            return ("+2 boleto");
+
+        }
+        if (cliente.getPuntosTotales()>=1350 && promocion==3) {
+            cliente.canjearPuntos(1350);
+            return ("+3 boleto");
+        }
+        return null;
+    }
+
+    public String paquetePremios(Cliente cliente, int promocion){
+        if (cliente.getPuntosTotales() >= 500 && promocion==1) {
+            cliente.canjearPuntos(500);
+            return("Pipocas grande");
+        }
+        if (cliente.getPuntosTotales() >= 950 && promocion==2) {
+            cliente.canjearPuntos(950);
+            return("Pipocas grande" + "2 refrescos medianos" + "gorra");
+        }
+        if (cliente.getPuntosTotales() >= 1350 && promocion==3) {
+            cliente.canjearPuntos(1350);
+            return("Pipocas grande" + "1 refresco grande" + "Polera oficial");
+        }
+        return null;
+    }
 }
