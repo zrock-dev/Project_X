@@ -85,15 +85,4 @@ public class Boleteria {
         salaMap.get("G").setCapacidad(50);
     }
 
-    public void comprarBoletoSinCI(MetodoPago metodo, int cantidadAsientos,String columnaAsiento,
-                                   String codigoSala, Semana dia,String name,String fechaNcimiento,ModoPresentacion modo) {
-        Cliente cliente = new Cliente(0, name, "ninguna", fechaNcimiento);
-        elegirModoPresentacion(modo);
-        Boleto boleto = new Boleto(cliente, precioPelicula, salaMap.get(codigoSala));
-        boleto.aplicarDescuento(metodo, dia);
-        precioPelicula = (int) (boleto.precioPelicula) * cantidadAsientos;
-        // el metodo comprar asientos todavia no funciona bien
-//        boleto.comprarAsientos(columnaAsiento, cantidadAsientos);
-        cliente.puntosTotales = 0;
-    }
 }

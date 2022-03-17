@@ -28,12 +28,4 @@ class BoleteriaTest {
         assertEquals(40, boleteria.getPrecioPelicula());
     }
 
-// borre los comprar boleto niño y comprar boleto anciano porque no corrian
-@Test
-public void testComprarBoletoSinCI() {
-    Sala sala = new Sala("5");
-    boleteria.comprarBoletoSinCI(Boleteria.MetodoPago.TARJETA,3, "B", sala.codigoSala, Semana.JUEVES,"Victor Cespedes","16/06/2004", Boleteria.ModoPresentacion.BIDIMENSIONAL);
-    assertEquals(105,boleteria.getPrecioPelicula());
-}
-
 }
