@@ -6,7 +6,6 @@ public class Boleto {
     Sala salaAsignada;
     String generoPelicula;
 
-    String tipoPelicula;
 
     public Boleto(Cliente cliente, double precioPelicula, Sala salaAsignada) {
         this.cliente = cliente;
@@ -44,7 +43,7 @@ public class Boleto {
 
 
     precioPelicula =precio;
-    setPuntosCliente(puntos);
+    cliente.sumarPuntos(puntos);
 
 }
 
@@ -54,8 +53,5 @@ public class Boleto {
         salaAsignada.reservarButacas(columnaSala, cantidadAsientos);
     }
 
-    public void setPuntosCliente(int puntos){
-        cliente.sumarPuntos(puntos);
-    }
 
 }
