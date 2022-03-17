@@ -28,4 +28,10 @@ class BoleteriaTest {
         assertEquals(40, boleteria.getPrecioPelicula());
     }
 
+    @Test
+    public void testComprarBoletoSinCI() {
+        Sala sala = new Sala("5");
+        boleteria.comprarBoletoSinCI(Boleteria.MetodoPago.TARJETA,3, "B", sala.codigoSala, Semana.JUEVES,"Victor Cespedes","16/06/2004", Boleteria.ModoPresentacion.BIDIMENSIONAL);
+        assertEquals(105,boleteria.getPrecioPelicula());
+    }
 }
