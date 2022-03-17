@@ -40,6 +40,7 @@ public class Sala {
             }
             //butacas.put(columnaLetra , codigosAsientoColumna);
         }
+
     }
 
     public void reservarButacas(String columna, int cantidadAsientosReservados){
