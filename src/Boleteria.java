@@ -39,9 +39,9 @@ public class Boleteria {
 
 
     public void comprarBoleto(int ci, MetodoPago metodo, String columnaAsiento, int cantidadAsientos,
-                              String codigoSala,Semana dia){
+                              String codigoSala){
         Boleto boleto = new Boleto(registroClientes.get(ci), precioPelicula, salaMap.get(codigoSala));
-        boleto.aplicarDescuento(metodo,dia);
+        boleto.aplicarDescuento(metodo);
         boleto.comprarAsientos(columnaAsiento, cantidadAsientos);
     }
 
@@ -97,4 +97,3 @@ public class Boleteria {
         cliente.puntosTotales = 0;
     }
 }
-//c
