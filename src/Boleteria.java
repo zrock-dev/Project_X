@@ -39,10 +39,19 @@ public class Boleteria {
 
 
     public void comprarBoleto(int ci, MetodoPago metodo, String columnaAsiento, int cantidadAsientos,
-                              String codigoSala){
-        Boleto boleto = new Boleto(registroClientes.get(ci), precioPelicula, salaMap.get(codigoSala));
-        boleto.aplicarDescuento(metodo);
-        boleto.comprarAsientos(columnaAsiento, cantidadAsientos);
+                              String codigoSala, Semana dia){
+        Cliente cliente = registroClientes.get(ci);
+        if (cliente.getCantidadTicketsGratis() == 0){
+            Boleto boleto = new Boleto(registroClientes.get(ci), precioPelicula, salaMap.get(codigoSala));
+            boleto.aplicarDescuento(metodo, dia);
+            boleto.comprarAsientos(columnaAsiento, cantidadAsientos);
+        }else {
+            // Este ticket ganado por premio no te permite ganar mas puntos.
+            Boleto boleto = new Boleto(salaMap.get(codigoSala));
+            // boleto.comprarAsientos(codigoSala, cantidadAsientos); el metodo no sirve
+            System.out.println("Su ticket ha sido utilizado.");
+            cliente.usarTicketGratis();
+        }
     }
 
     public void registrarCliente(int ci, String fullName, String nacionalidad, String fechaNacimiento){

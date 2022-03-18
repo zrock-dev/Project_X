@@ -1,6 +1,7 @@
 public class Cliente {
     int ci, puntosTotales;
     String fullName, nacionalidad, fechaNacimiento;
+    int cantidadTicketsGratis;
     // Fecha de nacimiento : 03/01/2001
 
 
@@ -29,5 +30,17 @@ public class Cliente {
 
     public void canjearPuntos(int puntosCanjeados){
         puntosTotales -= puntosCanjeados;
+    }
+
+    public void sumarTicketGratis(int cantidadTickets) {
+        this.cantidadTicketsGratis += cantidadTickets;
+    }
+
+    public int getCantidadTicketsGratis() {
+        return cantidadTicketsGratis;
+    }
+
+    public void usarTicketGratis(){
+        cantidadTicketsGratis -= 1;
     }
 }
