@@ -1,0 +1,44 @@
+import Registro.Cliente;
+import ServicioAlCliente.Premios;
+import ServicioAlCliente.Promocion;
+import org.junit.jupiter.api.Test;
+
+import java.security.PublicKey;
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class PromocionTest {
+    @Test
+    public void BoletoGratis(){
+        Cliente cliente = new Cliente(101010,"DIEGO FIGUEROA","BOLIVIANO","29/01/2001");
+        cliente.setPuntosTotales(10000);
+
+
+        Promocion.canjearPremio(Premios.SEGUNDAOPCION,cliente);
+        assertEquals(cliente.getCantidadTicketsGratis(),2);
+  }
+  @Test
+    public void PremiosCandyBarGratis(){
+      Cliente cliente = new Cliente(101010,"DIEGO FIGUEROA","BOLIVIANO","29/01/2001");
+      cliente.setPuntosTotales(10000);
+
+      Promocion.canjearPremio(Premios.QUINTAOPCION,cliente);
+      ArrayList<String> respuesta = new ArrayList<>();
+      respuesta.add("PIPOCAS GRANDES"+" BEBIDA GRANDE "+"GORRA DEL CINE");
+      assertEquals(cliente.getPremioCandyBar(),respuesta);
+  }
+  @Test
+    public void VariosPremiosDelCandyBar(){
+      Cliente cliente = new Cliente(101010,"DIEGO FIGUEROA","BOLIVIANO","29/01/2001");
+      cliente.setPuntosTotales(10000);
+
+      Promocion.canjearPremio(Premios.QUINTAOPCION,cliente);
+      Promocion.canjearPremio(Premios.CUARTAOPCION,cliente);
+      ArrayList<String> respuesta = new ArrayList<>();
+      respuesta.add("PIPOCAS GRANDES"+" BEBIDA GRANDE "+"GORRA DEL CINE");
+      respuesta.add("PIPOCAS GRANDES");
+      assertEquals(cliente.getPremioCandyBar(),respuesta);
+  }
+
+}

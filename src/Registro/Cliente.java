@@ -1,9 +1,12 @@
 package Registro;
 
+import java.util.ArrayList;
+
 public class Cliente {
     int ci, puntosTotales;
     String fullName, nacionalidad, fechaNacimiento;
     int cantidadTicketsGratis;
+    ArrayList<String> premioCandyBar;
     // Fecha de nacimiento : 03/01/2001
 
 
@@ -12,6 +15,7 @@ public class Cliente {
         this.fullName = fullName;
         this.nacionalidad = nacionalidad;
         this.fechaNacimiento = fechaNacimiento;
+        premioCandyBar = new ArrayList<>();
     }
 
     public void sumarPuntos(int cantidadSumar){
@@ -29,6 +33,8 @@ public class Cliente {
     public int getPuntosTotales() {
         return puntosTotales;
     }
+
+    public void setPuntosTotales(int puntos){this.puntosTotales=puntos;} //ESTA FUNCION LA USO PARA HACER UN TEST RAPIDO EN PromocionTest
 
     public void setCantidadTicketsGratis(int cantidadTicketsGratis) {
         this.cantidadTicketsGratis = cantidadTicketsGratis;
@@ -48,5 +54,15 @@ public class Cliente {
 
     public void usarTicketGratis(){
         cantidadTicketsGratis -= 1;
+    }
+
+
+
+    //ESTAS DOS FUNCIONES LAS USO PARA AGREGAR UN PREMIO DEL TIPO LITERAL (LAS DEL CANDYBAR) AL CLIENTE
+    public void setPremioCandyBar(String premio){
+        premioCandyBar.add(premio);
+    }
+    public ArrayList<String> getPremioCandyBar(){
+        return premioCandyBar;
     }
 }
