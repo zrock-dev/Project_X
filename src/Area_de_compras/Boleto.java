@@ -44,7 +44,7 @@ public class Boleto {
         }
         if (edadCliente >= 60) {
             precio = precioPelicula - (precioPelicula * .5);
-            puntos = (int) (50 - (50 * .5));
+            puntos = (int) (puntosBoleto - (puntosBoleto * .5));
         }
         precioPelicula = precio;
         cliente.sumarPuntos(puntos);
