@@ -6,6 +6,7 @@ public class Boleteria {
     Map<Integer, Cliente> registroClientes;
     Map<Sala,String[]> peliculasDia;
     int precioPelicula;
+    int precio2D = 40,precio3D = 50;
 
     public Boleteria(String name) {
         salaMap = new HashMap<>();
@@ -29,14 +30,24 @@ public class Boleteria {
     public void elegirModoPresentacion(ModoPresentacion modo){
         switch (modo){
             case BIDIMENSIONAL:
-                precioPelicula = 40;
+                precioPelicula = precio2D;
                 break;
             case TRIDIMENSIONAL:
-                precioPelicula = 50;
+                precioPelicula = precio3D;
                 break;
         }
     }
 
+    public void modificarPrecios(ModoPresentacion modo, int nuevoPrecio){
+        switch (modo){
+            case BIDIMENSIONAL:
+                precio2D = nuevoPrecio;
+                break;
+            case TRIDIMENSIONAL:
+                precio3D = nuevoPrecio;
+                break;
+        }
+    }
 
     public void comprarBoleto(int ci, MetodoPago metodo, String columnaAsiento, int cantidadAsientos,
                               String codigoSala){
