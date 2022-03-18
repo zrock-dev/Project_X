@@ -1,3 +1,5 @@
+package Salas_de_video;
+
 public class Utils {
     static String[] generosPelicula = {
                                 "Accion", "Animacion", "Ciencia Ficcion",

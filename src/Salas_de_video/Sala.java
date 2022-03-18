@@ -1,9 +1,11 @@
+package Salas_de_video;
+
 import java.util.*;
 
 public class Sala {
     int capacidad;
     String codigoSala;
-    Map<String, Integer> butacas;
+    public Map<String, Integer> butacas;
     String[] carteleraSala = new String[5];
 
     public Sala(String codigoSala){

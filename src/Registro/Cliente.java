@@ -1,6 +1,9 @@
+package Registro;
+
 public class Cliente {
     int ci, puntosTotales;
     String fullName, nacionalidad, fechaNacimiento;
+    int cantidadTicketsGratis;
     // Fecha de nacimiento : 03/01/2001
 
 
@@ -27,7 +30,23 @@ public class Cliente {
         return puntosTotales;
     }
 
+    public void setCantidadTicketsGratis(int cantidadTicketsGratis) {
+        this.cantidadTicketsGratis = cantidadTicketsGratis;
+    }
+
     public void canjearPuntos(int puntosCanjeados){
         puntosTotales -= puntosCanjeados;
+    }
+
+    public void sumarTicketGratis(int cantidadTickets) {
+        this.cantidadTicketsGratis += cantidadTickets;
+    }
+
+    public int getCantidadTicketsGratis() {
+        return cantidadTicketsGratis;
+    }
+
+    public void usarTicketGratis(){
+        cantidadTicketsGratis -= 1;
     }
 }
