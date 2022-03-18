@@ -1,3 +1,5 @@
+package Registro;
+
 public class Cliente {
     int ci, puntosTotales;
     String fullName, nacionalidad, fechaNacimiento;
@@ -26,6 +28,10 @@ public class Cliente {
 
     public int getPuntosTotales() {
         return puntosTotales;
+    }
+
+    public void setCantidadTicketsGratis(int cantidadTicketsGratis) {
+        this.cantidadTicketsGratis = cantidadTicketsGratis;
     }
 
     public void canjearPuntos(int puntosCanjeados){

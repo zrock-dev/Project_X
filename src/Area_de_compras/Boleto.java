@@ -1,5 +1,10 @@
+package Area_de_compras;
+
+import Registro.Cliente;
+import Salas_de_video.Sala;
+
 public class Boleto {
-    double precioPelicula;
+    public double precioPelicula;
     int cantidadAsientos;
     int puntosBoleto = 50;
     Cliente cliente;
@@ -20,12 +25,12 @@ public class Boleto {
         this.generoPelicula = generoPelicula;
     }
 
-    public void aplicarDescuento(Boleteria.MetodoPago metodo, Semana dia){
+    public void aplicarDescuento(MetodoPago metodo, Semana dia){
         int edadCliente = cliente.getEdad();
         double precio = 0;
         int puntos = 0;
 
-        if (metodo.equals(Boleteria.MetodoPago.TARJETA) && dia.equals(Semana.JUEVES)) {
+        if (metodo.equals(MetodoPago.TARJETA) && dia.equals(Semana.JUEVES)) {
             precio = precioPelicula - (precioPelicula * .12);
             puntos = (int) (puntosBoleto - (puntosBoleto * .12));
         }

@@ -1,25 +1,22 @@
+package Area_de_compras;
+
+import Registro.Cliente;
+import Registro.RegistradoraClientes;
+import Salas_de_video.Sala;
+import Salas_de_video.Utils;
+
 import java.util.*;
 
 public class Boleteria {
     String name;
     Map<String, Sala> salaMap;
-    Map<Integer, Cliente> registroClientes;
     Map<Sala,String[]> peliculasDia;
     int precioPelicula;
 
     public Boleteria(String name) {
         salaMap = new HashMap<>();
-        registroClientes = new HashMap<>();
         peliculasDia = new Hashtable<>();
         this.name = name;
-    }
-
-    enum MetodoPago{
-        TARJETA, QR, EFECTIVO
-    }
-
-    enum ModoPresentacion{
-        BIDIMENSIONAL, TRIDIMENSIONAL
     }
 
     public double getPrecioPelicula() {
@@ -40,9 +37,9 @@ public class Boleteria {
 
     public void comprarBoleto(int ci, MetodoPago metodo, String columnaAsiento, int cantidadAsientos,
                               String codigoSala, Semana dia){
-        Cliente cliente = registroClientes.get(ci);
+        Cliente cliente = RegistradoraClientes.getCliente(ci);
         if (cliente.getCantidadTicketsGratis() == 0){
-            Boleto boleto = new Boleto(registroClientes.get(ci), precioPelicula, salaMap.get(codigoSala));
+            Boleto boleto = new Boleto(cliente, precioPelicula, salaMap.get(codigoSala));
             boleto.aplicarDescuento(metodo, dia);
             boleto.comprarAsientos(columnaAsiento, cantidadAsientos);
         }else {
@@ -52,11 +49,6 @@ public class Boleteria {
             System.out.println("Su ticket ha sido utilizado.");
             cliente.usarTicketGratis();
         }
-    }
-
-    public void registrarCliente(int ci, String fullName, String nacionalidad, String fechaNacimiento){
-        Cliente cliente = new Cliente(ci, fullName, nacionalidad, fechaNacimiento);
-        registroClientes.put(ci, cliente);
     }
 
     public void tomarCartelerasSalas(){

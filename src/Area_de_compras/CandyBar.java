@@ -1,3 +1,7 @@
+package Area_de_compras;
+
+import Registro.Cliente;
+
 public class CandyBar {
 
     enum Paquete{

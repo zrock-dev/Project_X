@@ -1,3 +1,7 @@
+import Area_de_compras.Boleteria;
+import Area_de_compras.ModoPresentacion;
+import Registro.Cliente;
+import Registro.RegistradoraClientes;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,16 +16,9 @@ class BoleteriaTest {
     }
 
     @Test
-    public void registrarClienteTest(){
-        boleteria.registrarCliente(1312, "Pepe Ano", "Peru Ano", "23/12/2001");
-        int mapClientesSize = boleteria.registroClientes.size();
-        assertEquals(1, mapClientesSize);
-    }
-
-    @Test
     public void comprarBoletoNormal(){
         Cliente cliente = new Cliente(1312, "Pepe Ano", "Peru Ano", "23/12/2001");
-        boleteria.elegirModoPresentacion(Boleteria.ModoPresentacion.BIDIMENSIONAL);
+        boleteria.elegirModoPresentacion(ModoPresentacion.BIDIMENSIONAL);
         assertEquals(40, boleteria.getPrecioPelicula());
 
         //Tarjeta
