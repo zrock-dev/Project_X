@@ -62,15 +62,4 @@ public class BoletoTest {
         assertEquals(2, cliente.getCantidadTicketsGratis());
     }
 
-    @Test
-    public void testDescuentoSinCI(){
-        Boleto boleto = new Boleto(40);
-        boleto.aplicarDescuentoSinCI(MetodoPago.TARJETA,Semana.JUEVES,"16/08/1999","Accion");
-        assertEquals(35.2,boleto.precioPelicula);
-
-        Boleto boleto2 = new Boleto(50);
-        boleto2.aplicarDescuentoSinCI(MetodoPago.TARJETA,Semana.MIERCOLES,"12/03/2009","Animacion");
-        assertEquals(25,boleto2.precioPelicula);
-    }
-
 }
