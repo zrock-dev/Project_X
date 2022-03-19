@@ -30,12 +30,12 @@ class BoleteriaTest {
     @Test
     public void testComprarBoletoSinCI(){
         boleteria.comprarBoletoSinCI(MetodoPago.TARJETA,"B","A", 2, Semana.MIERCOLES,ModoPresentacion.BIDIMENSIONAL,"Paco","16/06/2000","Accion");
-        assertEquals(40,boleteria.getPrecioPelicula());
+        assertEquals(40,boleteria.getPrecioTotal());
 
         boleteria.comprarBoletoSinCI(MetodoPago.TARJETA,"B","A", 3,Semana.JUEVES,ModoPresentacion.TRIDIMENSIONAL,"Paco","16/06/2000","Accion");
-        assertEquals(132,boleteria.getPrecioPelicula());
+        assertEquals(132,boleteria.getPrecioTotal());
 
         boleteria.comprarBoletoSinCI(MetodoPago.EFECTIVO,"B","A", 4,Semana.LUNES,ModoPresentacion.BIDIMENSIONAL,"Paco","16/06/2000","Accion");
-        assertEquals(160,boleteria.getPrecioPelicula());
+        assertEquals(160,boleteria.getPrecioTotal());
     }
 }

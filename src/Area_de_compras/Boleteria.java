@@ -14,6 +14,7 @@ public class Boleteria {
     int precioPelicula;
     int precio2D = 40;
     int precio3D = 50;
+    int precioTotal;
 
     public Boleteria(String name) {
         salaMap = new HashMap<>();
@@ -105,7 +106,11 @@ public class Boleteria {
         Boleto boleto = new Boleto(cliente,precioPelicula,salaMap.get(codigoSala));
         boleto.setGeneroPelicula(genero);
         boleto.aplicarDescuento(metodo, dia);
-        precioPelicula = (int) (boleto.precioPelicula) * cantidadAsientos;
+        precioTotal = (int) (boleto.precioPelicula) * cantidadAsientos;
         //boleto.comprarAsientos(columnaAsiento, cantidadAsientos);
+    }
+
+    public int getPrecioTotal(){
+        return precioTotal;
     }
 }

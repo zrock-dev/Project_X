@@ -17,7 +17,16 @@ public class Cartelera {
         peliculas.add(peli);
     }
 
-    public ArrayList<Pelicula> getPeliculas(){
-        return peliculas;
+    public Pelicula getPeliculas(String nombre) {
+        for (int i = 0; i < peliculas.size(); i++) {
+            if (peliculas.get(i).getNombre().equals(nombre)) {
+                return peliculas.get(i);
+            }
+        }
+        return null;
+    }
+
+    public int getCantidadPelis(){
+        return peliculas.size();
     }
 }
