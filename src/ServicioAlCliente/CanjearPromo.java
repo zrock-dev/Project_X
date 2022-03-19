@@ -37,8 +37,6 @@ public class CanjearPromo {
             }
         }
     }
-
-
     /*public static Map<Integer, String>  listaPremios(){
         Map<Integer, String> premios = new ;
         premios.put(Premios.PRIMERAOPCION.getPuntosPremio(),Premios.PRIMERAOPCION.getDescripcion());
@@ -47,11 +45,5 @@ public class CanjearPromo {
         premios.put(Premios.CUARTAOPCION.getPuntosPremio(),Premios.CUARTAOPCION.getDescripcion());
         premios.put(Premios.QUINTAOPCION.getPuntosPremio(),Premios.QUINTAOPCION.getDescripcion());
         premios.put(Premios.SEXTAOPCION.getPuntosPremio(),Premios.SEXTAOPCION.getDescripcion());
-
         return premios;*/
-
-
-
-
-
 }

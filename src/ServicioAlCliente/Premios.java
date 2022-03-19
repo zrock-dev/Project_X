@@ -18,21 +18,14 @@ public enum Premios {
     private  final String descripcion;
     private final String tipo;
 
-
     private Premios(int puntos, String descripcion, String tipo){
         this.puntos = puntos;
         this.descripcion=descripcion;
         this.tipo=tipo;
-
     }
-
-
-
     public int getPuntosPremio(){
         return puntos;
     }
     public String getDescripcion(){return descripcion;}
     public String getTipo(){return tipo;}
-
-
 }
