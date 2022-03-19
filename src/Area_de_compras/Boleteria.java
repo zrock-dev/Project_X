@@ -98,4 +98,11 @@ public class Boleteria {
         salaMap.get("G").setCapacidad(50);
     }
 
+    public void comprarBoletoSinCI(MetodoPago metodo,String codigoSala,  String columnaAsiento, int cantidadAsientos,
+                                   Semana dia,ModoPresentacion modo,String nombre,String fechaNacimiento,String genero) {
+        elegirModoPresentacion(modo);
+        Boleto boleto = new Boleto(precioPelicula);
+        boleto.aplicarDescuentoSinCI(metodo, dia, fechaNacimiento, genero);
+        precioPelicula = (int) (boleto.precioPelicula) * cantidadAsientos;
+    }
 }

@@ -21,6 +21,10 @@ public class Boleto {
         this.salaAsignada = salaAsignada;
     }
 
+    public Boleto(int precioPelicula){
+        this.precioPelicula = precioPelicula;
+    }
+
     public void setGeneroPelicula(String generoPelicula) {
         this.generoPelicula = generoPelicula;
     }
@@ -48,6 +52,28 @@ public class Boleto {
         }
         precioPelicula = precio;
         cliente.sumarPuntos(puntos);
+    }
+
+    public void aplicarDescuentoSinCI(MetodoPago metodo, Semana dia,String fechaNacimiento,String genero){
+        generoPelicula = genero;
+        int edadCliente = 2022 - Integer.parseInt(fechaNacimiento.split("/")[2]);
+        double precio = 0;
+        if (metodo.equals(MetodoPago.TARJETA) && dia.equals(Semana.JUEVES)) {
+            precio = precioPelicula - (precioPelicula * .12);
+        }
+        if (dia.equals(Semana.MIERCOLES)) {
+            precio = precioPelicula - (precioPelicula * .5);
+        }
+        if (edadCliente <= 10 && generoPelicula.equals("Animacion")) {
+            precio = precioPelicula - (precioPelicula * .15);
+        }
+        if (edadCliente >= 60) {
+            precio = precioPelicula - (precioPelicula * .5);
+        }
+        if (precio == 0){
+            precio = precioPelicula;
+        }
+        precioPelicula = precio;
     }
 
     public void comprarAsientos(String columnaSala, int cantidadAsientos){
