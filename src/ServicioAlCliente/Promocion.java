@@ -11,26 +11,32 @@ public class Promocion {
 
     public static void canjearPremio(Premios premio,Cliente cliente){
 
-        if (cliente.getPuntosTotales()>=premio.getPuntosPremio() && premio.equals(Premios.PRIMERAOPCION)){
-            cliente.setCantidadTicketsGratis(1);
-            cliente.canjearPuntos(premio.getPuntosPremio());
-        }
-        if (cliente.getPuntosTotales()>=premio.getPuntosPremio() && premio.equals(Premios.SEGUNDAOPCION)) {
-            cliente.setCantidadTicketsGratis(2);
-            cliente.canjearPuntos(premio.getPuntosPremio());
-        }
-        if (cliente.getPuntosTotales()>=premio.getPuntosPremio() && premio.equals(Premios.TERCERAOPCION)) {
-            cliente.setCantidadTicketsGratis(3);
-            cliente.canjearPuntos(premio.getPuntosPremio());
-        }
-        if (cliente.getPuntosTotales()>=premio.getPuntosPremio() && premio.equals(Premios.CUARTAOPCION)){
-            cliente.setPremioCandyBar("PIPOCAS GRANDES");
-        }
-        if (cliente.getPuntosTotales()>=premio.getPuntosPremio() && premio.equals(Premios.QUINTAOPCION)){
-            cliente.setPremioCandyBar("PIPOCAS GRANDES"+" BEBIDA GRANDE "+"GORRA DEL CINE");
-        }
-        if (cliente.getPuntosTotales()>=premio.getPuntosPremio() && premio.equals(Premios.SEXTAOPCION)){
-            cliente.setPremioCandyBar("PIPOCAS GRANDES"+" BEBIDA GRANDE "+"POLERA DEL CINE");
+        switch (premio.getTipo()) {
+            case ("boleto"):
+
+                if (cliente.getPuntosTotales() >= premio.getPuntosPremio() && premio.equals(Premios.PRIMERAOPCION)) {
+                    cliente.setCantidadTicketsGratis(1);
+                    cliente.canjearPuntos(premio.getPuntosPremio());
+                }
+                if (cliente.getPuntosTotales() >= premio.getPuntosPremio() && premio.equals(Premios.SEGUNDAOPCION)) {
+                    cliente.setCantidadTicketsGratis(2);
+                    cliente.canjearPuntos(premio.getPuntosPremio());
+                }
+                if (cliente.getPuntosTotales() >= premio.getPuntosPremio() && premio.equals(Premios.TERCERAOPCION)) {
+                    cliente.setCantidadTicketsGratis(3);
+                    cliente.canjearPuntos(premio.getPuntosPremio());
+                }
+
+            case ("candybar"):
+            if (cliente.getPuntosTotales() >= premio.getPuntosPremio() && premio.equals(Premios.CUARTAOPCION)) {
+                cliente.setPremioCandyBar(premio.getDescripcion());
+            }
+            if (cliente.getPuntosTotales() >= premio.getPuntosPremio() && premio.equals(Premios.QUINTAOPCION)) {
+                cliente.setPremioCandyBar(premio.getDescripcion());
+            }
+            if (cliente.getPuntosTotales() >= premio.getPuntosPremio() && premio.equals(Premios.SEXTAOPCION)) {
+                cliente.setPremioCandyBar(premio.getDescripcion());
+            }
         }
     }
 

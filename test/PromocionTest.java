@@ -25,7 +25,7 @@ public class PromocionTest {
 
       Promocion.canjearPremio(Premios.QUINTAOPCION,cliente);
       ArrayList<String> respuesta = new ArrayList<>();
-      respuesta.add("PIPOCAS GRANDES"+" BEBIDA GRANDE "+"GORRA DEL CINE");
+      respuesta.add(Premios.QUINTAOPCION.getDescripcion());
       assertEquals(cliente.getPremioCandyBar(),respuesta);
   }
   @Test
@@ -36,8 +36,8 @@ public class PromocionTest {
       Promocion.canjearPremio(Premios.QUINTAOPCION,cliente);
       Promocion.canjearPremio(Premios.CUARTAOPCION,cliente);
       ArrayList<String> respuesta = new ArrayList<>();
-      respuesta.add("PIPOCAS GRANDES"+" BEBIDA GRANDE "+"GORRA DEL CINE");
-      respuesta.add("PIPOCAS GRANDES");
+      respuesta.add(Premios.QUINTAOPCION.getDescripcion());
+      respuesta.add(Premios.CUARTAOPCION.getDescripcion());
       assertEquals(cliente.getPremioCandyBar(),respuesta);
   }
 

@@ -3,20 +3,22 @@ package ServicioAlCliente;
 import java.util.ArrayList;
 
 public enum Premios {
-    PRIMERAOPCION (500, "1 BOLETO DE REGALO"),
-    SEGUNDAOPCION (950,"2 BOLETOS DE REGALO"),
-    TERCERAOPCION(1350,"3 BOLETOS DE REGALO"),
-    CUARTAOPCION (500,"UNA PORCION GRANDE DE PIPOCAS"),
-    QUINTAOPCION(950,"UN COMBO GRANDE DE PIPOCAS Y DOS REFRESCOS MEDIANOS MAS UNA GORRA DEL CINE"),
-    SEXTAOPCION(1350,"UN COMBO GRANDE DE PIPOCAS Y DOS REFRESCOS MEDIANOS MAS UNA POLERA DEL CINE");
+    PRIMERAOPCION (500, "1 BOLETO DE REGALO","boleto"),
+    SEGUNDAOPCION (950,"2 BOLETOS DE REGALO","boleto"),
+    TERCERAOPCION(1350,"3 BOLETOS DE REGALO","boleto"),
+    CUARTAOPCION (500,"UNA PORCION GRANDE DE PIPOCAS","candybar"),
+    QUINTAOPCION(950,"UN COMBO GRANDE DE PIPOCAS Y DOS REFRESCOS MEDIANOS MAS UNA GORRA DEL CINE","candybar"),
+    SEXTAOPCION(1350,"UN COMBO GRANDE DE PIPOCAS Y DOS REFRESCOS MEDIANOS MAS UNA POLERA DEL CINE","candybar");
 
     private final int puntos;
     private  final String descripcion;
+    private final String tipo;
 
 
-    private Premios(int puntos, String descripcion){
+    private Premios(int puntos, String descripcion, String tipo){
         this.puntos = puntos;
         this.descripcion=descripcion;
+        this.tipo=tipo;
 
     }
 
@@ -26,6 +28,7 @@ public enum Premios {
         return puntos;
     }
     public String getDescripcion(){return descripcion;}
+    public String getTipo(){return tipo;}
 
 
 }
