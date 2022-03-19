@@ -1,6 +1,6 @@
 import Registro.Cliente;
 import ServicioAlCliente.Premios;
-import ServicioAlCliente.Promocion;
+import ServicioAlCliente.CanjearPromo;
 import org.junit.jupiter.api.Test;
 
 import java.security.PublicKey;
@@ -15,7 +15,7 @@ public class PromocionTest {
         cliente.setPuntosTotales(10000);
 
 
-        Promocion.canjearPremio(Premios.SEGUNDAOPCION,cliente);
+        CanjearPromo.canjear(Premios.SEGUNDAOPCION,cliente);
         assertEquals(cliente.getCantidadTicketsGratis(),2);
   }
   @Test
@@ -23,7 +23,7 @@ public class PromocionTest {
       Cliente cliente = new Cliente(101010,"DIEGO FIGUEROA","BOLIVIANO","29/01/2001");
       cliente.setPuntosTotales(10000);
 
-      Promocion.canjearPremio(Premios.QUINTAOPCION,cliente);
+      CanjearPromo.canjear(Premios.QUINTAOPCION,cliente);
       ArrayList<String> respuesta = new ArrayList<>();
       respuesta.add(Premios.QUINTAOPCION.getDescripcion());
       assertEquals(cliente.getPremioCandyBar(),respuesta);
@@ -33,8 +33,8 @@ public class PromocionTest {
       Cliente cliente = new Cliente(101010,"DIEGO FIGUEROA","BOLIVIANO","29/01/2001");
       cliente.setPuntosTotales(10000);
 
-      Promocion.canjearPremio(Premios.QUINTAOPCION,cliente);
-      Promocion.canjearPremio(Premios.CUARTAOPCION,cliente);
+      CanjearPromo.canjear(Premios.QUINTAOPCION,cliente);
+      CanjearPromo.canjear(Premios.CUARTAOPCION,cliente);
       ArrayList<String> respuesta = new ArrayList<>();
       respuesta.add(Premios.QUINTAOPCION.getDescripcion());
       respuesta.add(Premios.CUARTAOPCION.getDescripcion());

@@ -2,39 +2,37 @@ package ServicioAlCliente;
 
 import Registro.Cliente;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+public class CanjearPromo {
 
-public class Promocion {
+    public static void canjear(Premios premio,Cliente cliente){
 
-    public static void canjearPremio(Premios premio,Cliente cliente){
+        int puntosPremio = premio.getPuntosPremio();
+        int clientePuntosTotales = cliente.getPuntosTotales();
 
         switch (premio.getTipo()) {
             case ("boleto"):
 
-                if (cliente.getPuntosTotales() >= premio.getPuntosPremio() && premio.equals(Premios.PRIMERAOPCION)) {
+                if (clientePuntosTotales >= puntosPremio && premio.equals(Premios.PRIMERAOPCION)) {
                     cliente.setCantidadTicketsGratis(1);
                     cliente.canjearPuntos(premio.getPuntosPremio());
                 }
-                if (cliente.getPuntosTotales() >= premio.getPuntosPremio() && premio.equals(Premios.SEGUNDAOPCION)) {
+                if (clientePuntosTotales >= puntosPremio && premio.equals(Premios.SEGUNDAOPCION)) {
                     cliente.setCantidadTicketsGratis(2);
                     cliente.canjearPuntos(premio.getPuntosPremio());
                 }
-                if (cliente.getPuntosTotales() >= premio.getPuntosPremio() && premio.equals(Premios.TERCERAOPCION)) {
+                if (clientePuntosTotales >= puntosPremio && premio.equals(Premios.TERCERAOPCION)) {
                     cliente.setCantidadTicketsGratis(3);
                     cliente.canjearPuntos(premio.getPuntosPremio());
                 }
 
             case ("candybar"):
-            if (cliente.getPuntosTotales() >= premio.getPuntosPremio() && premio.equals(Premios.CUARTAOPCION)) {
+            if (clientePuntosTotales >= puntosPremio && premio.equals(Premios.CUARTAOPCION)) {
                 cliente.setPremioCandyBar(premio.getDescripcion());
             }
-            if (cliente.getPuntosTotales() >= premio.getPuntosPremio() && premio.equals(Premios.QUINTAOPCION)) {
+            if (clientePuntosTotales >= puntosPremio && premio.equals(Premios.QUINTAOPCION)) {
                 cliente.setPremioCandyBar(premio.getDescripcion());
             }
-            if (cliente.getPuntosTotales() >= premio.getPuntosPremio() && premio.equals(Premios.SEXTAOPCION)) {
+            if (clientePuntosTotales >= puntosPremio && premio.equals(Premios.SEXTAOPCION)) {
                 cliente.setPremioCandyBar(premio.getDescripcion());
             }
         }
