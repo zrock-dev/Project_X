@@ -2,6 +2,7 @@ package Area_de_compras;
 
 import Registro.Cliente;
 import Registro.RegistradoraClientes;
+import Salas_de_video.Pelicula;
 import Salas_de_video.RoomsManager;
 import Salas_de_video.Sala;
 import Salas_de_video.Utils;
@@ -50,13 +51,13 @@ public class Boleteria {
     }
 
     public void comprarBoleto(int ci, MetodoPago metodo, String codigoSala,
-                              String[] seatsToBuy , Semana dia){
+                              String[] seatsToBuy , Semana dia, Pelicula pelicula){
         Cliente cliente = RegistradoraClientes.getCliente(ci);
         Sala salaCliente = manager.getSala(codigoSala);
         String fullNameClient = cliente.getFullName();
 
         if (cliente.getCantidadTicketsGratis() == 0){
-            Boleto boleto = new Boleto(cliente, precioPelicula, salaCliente);
+            Boleto boleto = new Boleto(cliente, precioPelicula, salaCliente,pelicula);
             boleto.aplicarDescuento(metodo, dia);
             manager.buySeats(codigoSala, seatsToBuy, fullNameClient);
         }else {

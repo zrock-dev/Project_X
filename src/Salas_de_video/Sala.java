@@ -6,12 +6,12 @@ public class Sala {
     int capacidadAsientos;
     String codigoSala;
     Map<String, ArrayList<Seat>> butacasMap;
-    String[] carteleraSala = new String[5];
+    ArrayList<String> carteleraSala;
 
-    public Sala(String codigoSala){
+    public Sala(String codigoSala) {
         butacasMap = new Hashtable<>();
         this.codigoSala = codigoSala;
-        llenarCarteleraSala();
+        carteleraSala = new ArrayList<>();
     }
 
     public void setButacasMap(Map<String, ArrayList<Seat>> butacasMap) {
@@ -22,22 +22,36 @@ public class Sala {
         return capacidadAsientos;
     }
 
-    public String[] getCarteleraSala() {
+    public ArrayList<String> getCarteleraSala() {
         return carteleraSala;
     }
-
-    public void setCapacidad(int capacidadAsientos) {
+    public void setCapacidad ( int capacidadAsientos){
         this.capacidadAsientos = capacidadAsientos;
     }
 
-    public Map<String, ArrayList<Seat>> getButacasMap() {
+    public Map<String, ArrayList<Seat>> getButacasMap () {
         return butacasMap;
     }
 
-    public void llenarCarteleraSala(){
-        for (int index = 0; index < carteleraSala.length; index++) {
-            int rndIndex = new Random().nextInt(Utils.generosPelicula.length);
-            carteleraSala[index] = Utils.generosPelicula[rndIndex];
-        }
+    public void llenarCarteleraSala (Pelicula pelicula){
+        int cantidadPeliculas = carteleraSala.size();
+        int calificacionPelicula = pelicula.getCalificacion();
+        switch (capacidadAsientos) {
+            case 50:
+                if (cantidadPeliculas < 5 && calificacionPelicula <= 5) {
+                    carteleraSala.add(pelicula.nombre);
+                }
+            case 80:
+                if (cantidadPeliculas < 5 && calificacionPelicula > 5 && calificacionPelicula < 9) {
+                    carteleraSala.add(pelicula.nombre);
+                }
+                break;
+            case 100:
+                if (cantidadPeliculas < 5 && calificacionPelicula > 8) {
+                    carteleraSala.add(pelicula.nombre);
+                }
+                break;
+            }
     }
 }
+
