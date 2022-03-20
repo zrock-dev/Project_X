@@ -30,6 +30,10 @@ public class Sala {
         this.capacidadAsientos = capacidadAsientos;
     }
 
+    public Map<String, ArrayList<String>> getButacasMap() {
+        return butacasMap;
+    }
+
     public void llenarCarteleraSala(){
         for (int index = 0; index < carteleraSala.length; index++) {
             int rndIndex = new Random().nextInt(Utils.generosPelicula.length);

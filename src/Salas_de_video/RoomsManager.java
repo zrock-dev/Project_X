@@ -1,5 +1,7 @@
 package Salas_de_video;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,8 +21,17 @@ public class RoomsManager {
         for (String letterCode:
              roomsCodes) {
             Sala sala = new Sala(letterCode);
+            // Sala con asientos.
             roomsMap.put(letterCode, sala);
         }
+        setRoomsCapacity();
+        populateRooms();
+    }
+
+    public void populateRooms(){
+        Collection<Sala> listRooms =  roomsMap.values();
+        SeatManager seatManager = new SeatManager();
+        seatManager.fillRooms(listRooms);
     }
 
     public void setRoomsCapacity(){
@@ -33,7 +44,12 @@ public class RoomsManager {
         roomsMap.get("G").setCapacidad(smallRoomSize);
     }
 
-    public void showRoomSeats(){
-
+    public void showRoomSeats(String codeRoom){
+        Sala sala = roomsMap.get(codeRoom);
+        Map<String, ArrayList<String>> seatsRoom = sala.getButacasMap();
+        for (ArrayList<String> columnSeats:
+             seatsRoom.values()) {
+            System.out.println(columnSeats);
+        }
     }
 }

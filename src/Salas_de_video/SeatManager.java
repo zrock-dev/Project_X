@@ -1,22 +1,29 @@
 package Salas_de_video;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 public class SeatManager {
     // key = "A", value: ArrayList<"A1", "A2", "A3",....,"A10">
-    Map<String, ArrayList<String>> seatsTemp;
-    Sala sala;
+    Collection<Sala> roomsAvailable;
     int rowQuantity = 10;
 
-    public SeatManager(Sala sala) {
-        seatsTemp = new HashMap<>();
-        this.sala = sala;
+    public SeatManager() {
+        roomsAvailable = new ArrayList<>();
+    }
+
+    public void fillRooms(Collection<Sala> roomsAvailable){
+        for (Sala sala:
+             roomsAvailable) {
+            populateRoom(sala);
+        }
     }
 
     // fill room with unreserved seats.
-    public void populateRoom(){
+    public void populateRoom(Sala sala){
+        Map<String, ArrayList<String>> seatsTemp = new HashMap<>();
         int seatsCapacity = sala.getCapacidad();
         int columnsQuantity = seatsCapacity / rowQuantity;
         String[] columnCodes = Utils.generarAbc(columnsQuantity);
@@ -31,7 +38,6 @@ public class SeatManager {
             }
 
             seatsTemp.put(columCode, rowSeats);
-            System.out.println(rowSeats);
         }
         sala.setButacasMap(seatsTemp);
     }
