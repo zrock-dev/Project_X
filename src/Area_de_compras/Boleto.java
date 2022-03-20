@@ -1,40 +1,37 @@
 package Area_de_compras;
 
 import Registro.Cliente;
+import Salas_de_video.Pelicula;
 import Salas_de_video.Sala;
 
 public class Boleto {
     public double precioPelicula;
-    int cantidadAsientos;
     int puntosBoleto = 50;
     Cliente cliente;
     Sala salaAsignada;
-    String generoPelicula;
+    Pelicula pelicula;
 
-    public Boleto(Cliente cliente, int precioPelicula, Sala salaAsignada){
+    public Boleto(Cliente cliente, int precioPelicula, Sala salaAsignada, Pelicula pelicula){
         this.cliente = cliente;
         this.precioPelicula = precioPelicula;
         this.salaAsignada = salaAsignada;
+        this.pelicula=pelicula;
     }
 
     public Boleto(Sala salaAsignada){
         this.salaAsignada = salaAsignada;
     }
 
-    public void setGeneroPelicula(String generoPelicula) {
-        this.generoPelicula = generoPelicula;
-    }
-
     public void aplicarDescuento(MetodoPago metodo, Semana dia){
         int edadCliente = cliente.getEdad();
-        double precio = 0;
-        int puntos = 0;
+        double precio = precioPelicula;
+        int puntos = puntosBoleto;
 
         if (metodo.equals(MetodoPago.TARJETA) && dia.equals(Semana.JUEVES)) {
             precio = precioPelicula - (precioPelicula * .12);
             puntos = (int) (puntosBoleto - (puntosBoleto * .12));
         }
-        if (edadCliente <= 10 && generoPelicula.equals("Animacion")) {
+        if (edadCliente <= 10 && pelicula.getAnimacion()){
             precio = precioPelicula - (precioPelicula * .15);
             puntos = (int) (puntosBoleto - (puntosBoleto * .15));
         }
