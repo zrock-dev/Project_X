@@ -8,7 +8,7 @@ public class Pelicula {
     int calificacion;
     ArrayList<String> generos;
 
-    public Pelicula(String nombre, String duracion,String descripcion,int calificacion){
+    public Pelicula(String nombre, String duracion, String descripcion, int calificacion){
         generos = new ArrayList<>();
         this.nombre=nombre;
         this.calificacion=calificacion;
@@ -24,18 +24,14 @@ public class Pelicula {
             }
         }
     }
+
     public void setCalificacion(int calificacion){
         this.calificacion=calificacion;
     }
-    public int getCalificaion(){
+    public int getCalificacion(){
         return calificacion;
     }
     public boolean getAnimacion(){
-        for (String genero : generos){
-            if (genero.equals("Animacion")){
-                return true;
-            }
-        }
-        return false;
+        return generos.contains("Animacion");
     }
 }

@@ -35,7 +35,7 @@ public class Sala {
 
     public void llenarCarteleraSala (Pelicula pelicula){
         int cantidadPeliculas = carteleraSala.size();
-        int calificacionPelicula = pelicula.getCalificaion();
+        int calificacionPelicula = pelicula.getCalificacion();
         switch (capacidadAsientos) {
             case 50:
                 if (cantidadPeliculas < 5 && calificacionPelicula <= 5) {
