@@ -7,10 +7,10 @@ public class Utils {
                                 "Musical", "Romance", "Suspenso",
                                 "Terror", "Documental"};
 
-    public static char[] generarAbc(int cantidadLetras){
-        char[] abecedario = new char[cantidadLetras];
+    public static String[] generarAbc(int cantidadLetras){
+        String[] abecedario = new String[cantidadLetras];
         for (int index = 0; index < cantidadLetras; index++) {
-            abecedario[index] = (char) (65 + index);
+            abecedario[index] = String.valueOf((char) (65 + index));
         }
         return abecedario;
     }

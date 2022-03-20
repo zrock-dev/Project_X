@@ -79,12 +79,12 @@ public class Boleteria {
     }
 
     public void crearSalas(int cantidad){
-        char[] letras = Utils.generarAbc(cantidad);
-        for (int i = 0; i < cantidad; i++){
-            String letra = String.valueOf(letras[i]);
-            Sala sala = new Sala(letra);
+        String[] codigoSala = Utils.generarAbc(cantidad);
+        for (String letraSala:
+             codigoSala) {
+            Sala sala = new Sala(letraSala);
+            // Para que se vayan llenando de peliculas.
             sala.llenarCarteleraSala();
-            salaMap.put(letra, sala);
         }
     }
 
