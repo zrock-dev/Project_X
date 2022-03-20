@@ -10,6 +10,10 @@ public class RoomsManager {
 
     Map<String, Sala> roomsMap = new HashMap<>();
 
+    public Sala getSala(String roomCode){
+        return roomsMap.get(roomCode);
+    }
+
     public void generateRooms(int roomsAmount){
         String[] roomsCodes = Utils.generarAbc(roomsAmount);
         for (String letterCode:
@@ -27,5 +31,9 @@ public class RoomsManager {
         roomsMap.get("E").setCapacidad(mediumRoomSize);
         roomsMap.get("F").setCapacidad(smallRoomSize);
         roomsMap.get("G").setCapacidad(smallRoomSize);
+    }
+
+    public void showRoomSeats(){
+
     }
 }
