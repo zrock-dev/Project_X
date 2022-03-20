@@ -70,7 +70,7 @@ public class Boleteria {
         }
     }
 
-    public void comprarBoletoSinCI(MetodoPago metodo,String codigoSala,String[] seatsToBuy,
+    public void comprarBoleto(MetodoPago metodo,String codigoSala,String[] seatsToBuy,
                                    Semana dia,ModoPresentacion modo,String nombre,String fechaNacimiento,Pelicula pelicula) {
 
         Sala salaCliente = manager.getSala(codigoSala);
@@ -80,7 +80,7 @@ public class Boleteria {
         boleto.aplicarDescuento(metodo, dia);
         precioTotal = (int) (boleto.precioPelicula) * seatsToBuy.length;
         //me salta error este metodo
-    //    manager.buySeats(codigoSala, seatsToBuy, nombre);
+        manager.buySeats(codigoSala, seatsToBuy, nombre);
     }
 
     public int getPrecioTotal(){
