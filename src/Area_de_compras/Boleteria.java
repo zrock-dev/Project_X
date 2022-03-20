@@ -81,6 +81,7 @@ public class Boleteria {
         precioTotal = (int) (boleto.precioPelicula) * seatsToBuy.length;
         manager.buySeats(codigoSala, seatsToBuy, nombre);
     }
+
     // agregue esto para hacer el test
     public int getPrecioTotal(){
         return precioTotal;
