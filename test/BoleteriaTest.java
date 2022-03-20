@@ -1,8 +1,13 @@
 import Area_de_compras.Boleteria;
+import Area_de_compras.MetodoPago;
 import Area_de_compras.ModoPresentacion;
+import Area_de_compras.Semana;
 import Registro.Cliente;
 import Registro.RegistradoraClientes;
+import Salas_de_video.Pelicula;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,4 +24,12 @@ class BoleteriaTest {
         assertEquals(40, boleteria.getPrecioPelicula());
     }
 
+    @Test
+    public void testComprarBoletoSinCI() {
+        Pelicula pelicula = new Pelicula("PEPPA PIG", "2 horas", "Un cerdo que habla", 10);
+        pelicula.setGeneros("Animacion");
+        String[] seats = {"A2","C3","A4"};
+        boleteria.comprarBoleto(MetodoPago.TARJETA,"A",seats,Semana.JUEVES,ModoPresentacion.BIDIMENSIONAL,"Paco","16/06/2018",pelicula);
+        assertEquals(102,boleteria.getPrecioTotal());
+    }
 }
