@@ -5,7 +5,7 @@ import java.util.*;
 public class Sala {
     int capacidadAsientos;
     String codigoSala;
-    Map<String, ArrayList<String>> butacasMap;
+    Map<String, ArrayList<Seat>> butacasMap;
     String[] carteleraSala = new String[5];
 
     public Sala(String codigoSala){
@@ -14,7 +14,7 @@ public class Sala {
         llenarCarteleraSala();
     }
 
-    public void setButacasMap(Map<String, ArrayList<String>> butacasMap) {
+    public void setButacasMap(Map<String, ArrayList<Seat>> butacasMap) {
         this.butacasMap = butacasMap;
     }
 
@@ -30,7 +30,7 @@ public class Sala {
         this.capacidadAsientos = capacidadAsientos;
     }
 
-    public Map<String, ArrayList<String>> getButacasMap() {
+    public Map<String, ArrayList<Seat>> getButacasMap() {
         return butacasMap;
     }
 

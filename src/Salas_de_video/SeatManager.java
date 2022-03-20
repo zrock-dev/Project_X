@@ -23,18 +23,19 @@ public class SeatManager {
 
     // fill room with unreserved seats.
     public void populateRoom(Sala sala){
-        Map<String, ArrayList<String>> seatsTemp = new HashMap<>();
+        Map<String, ArrayList<Seat>> seatsTemp = new HashMap<>();
         int seatsCapacity = sala.getCapacidad();
         int columnsQuantity = seatsCapacity / rowQuantity;
         String[] columnCodes = Utils.generarAbc(columnsQuantity);
 
         for (String columCode:
              columnCodes) {
-            ArrayList<String> rowSeats = new ArrayList<>();
+            ArrayList<Seat> rowSeats = new ArrayList<>();
 
             // Populate rows of a column
             for (int numCodeSeat = 0; numCodeSeat < rowQuantity ; numCodeSeat++) {
-                rowSeats.add(columCode + (numCodeSeat +1));
+                Seat seat = new Seat(columCode + (numCodeSeat +1));
+                rowSeats.add(seat);
             }
 
             seatsTemp.put(columCode, rowSeats);

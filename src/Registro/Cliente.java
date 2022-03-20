@@ -56,7 +56,9 @@ public class Cliente {
         cantidadTicketsGratis -= 1;
     }
 
-
+    public String getFullName() {
+        return fullName;
+    }
 
     //ESTAS DOS FUNCIONES LAS USO PARA AGREGAR UN PREMIO DEL TIPO LITERAL (LAS DEL CANDYBAR) AL CLIENTE
     public void setPremioCandyBar(String premio){
