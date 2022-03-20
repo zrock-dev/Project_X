@@ -63,6 +63,4 @@ public class BoletoTest {
         assertEquals(2, cliente.getCantidadTicketsGratis());
     }
 
-
-
 }

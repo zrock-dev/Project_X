@@ -14,6 +14,7 @@ public class Boleteria {
     int precioPelicula;
     int precio2D = 40;
     int precio3D = 50;
+    int precioTotal;
 
     // La boleteria se comunica con las salas por medio del RoomsManager
     RoomsManager manager = new RoomsManager();
@@ -84,4 +85,18 @@ public class Boleteria {
 //        }
 //    }
 
+    public void comprarBoletoSinCI(MetodoPago metodo,String codigoSala,  String columnaAsiento, int cantidadAsientos,
+                                   Semana dia,ModoPresentacion modo,String nombre,String fechaNacimiento,String genero) {
+        elegirModoPresentacion(modo);
+        Cliente cliente = new Cliente(nombre,fechaNacimiento);
+        Boleto boleto = new Boleto(cliente,precioPelicula,salaMap.get(codigoSala));
+        boleto.setGeneroPelicula(genero);
+        boleto.aplicarDescuento(metodo, dia);
+        precioTotal = (int) (boleto.precioPelicula) * cantidadAsientos;
+        //boleto.comprarAsientos(columnaAsiento, cantidadAsientos);
+    }
+
+    public int getPrecioTotal(){
+        return precioTotal;
+    }
 }

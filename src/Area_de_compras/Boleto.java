@@ -46,6 +46,10 @@ public class Boleto {
             precio = precioPelicula - (precioPelicula * .5);
             puntos = (int) (puntosBoleto - (puntosBoleto * .5));
         }
+        // agrego esto solo para casos en los que no halla ningun descuento
+        if (precio == 0){
+            precio = precioPelicula;
+        }
         precioPelicula = precio;
         cliente.sumarPuntos(puntos);
     }
