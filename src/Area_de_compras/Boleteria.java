@@ -53,7 +53,7 @@ public class Boleteria {
         if (cliente.getCantidadTicketsGratis() == 0){
             Boleto boleto = new Boleto(cliente, precioPelicula, salaMap.get(codigoSala));
             boleto.aplicarDescuento(metodo, dia);
-            boleto.comprarAsientos(columnaAsiento, cantidadAsientos);
+            // boleto.comprarAsientos(columnaAsiento, cantidadAsientos);
         }else {
             // Este ticket ganado por premio no te permite ganar mas puntos.
             Boleto boleto = new Boleto(salaMap.get(codigoSala));
@@ -86,16 +86,6 @@ public class Boleteria {
             // Para que se vayan llenando de peliculas.
             sala.llenarCarteleraSala();
         }
-    }
-
-    public void setCapacidadSalas(){
-        salaMap.get("A").setCapacidad(100);
-        salaMap.get("B").setCapacidad(100);
-        salaMap.get("C").setCapacidad(100);
-        salaMap.get("D").setCapacidad(80);
-        salaMap.get("E").setCapacidad(80);
-        salaMap.get("F").setCapacidad(50);
-        salaMap.get("G").setCapacidad(50);
     }
 
 }

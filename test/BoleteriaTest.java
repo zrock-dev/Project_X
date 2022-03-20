@@ -8,12 +8,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BoleteriaTest {
     Boleteria boleteria = new Boleteria("ElCine");
-    @Test
-    public void showCarteleraTest(){
-        boleteria.crearSalas(7);
-        boleteria.setCapacidadSalas();
-        boleteria.showCartelera();
-    }
 
     @Test
     public void comprarBoletoNormal(){

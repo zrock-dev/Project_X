@@ -49,10 +49,4 @@ public class Boleto {
         precioPelicula = precio;
         cliente.sumarPuntos(puntos);
     }
-
-    public void comprarAsientos(String columnaSala, int cantidadAsientos){
-        this.cantidadAsientos = cantidadAsientos;
-        salaAsignada.reservarButacas(columnaSala, cantidadAsientos);
-    }
-
 }
