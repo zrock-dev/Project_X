@@ -79,10 +79,9 @@ public class Boleteria {
         Boleto boleto = new Boleto(cliente,precioPelicula,salaCliente,pelicula);
         boleto.aplicarDescuento(metodo, dia);
         precioTotal = (int) (boleto.precioPelicula) * seatsToBuy.length;
-        //me salta error este metodo
         manager.buySeats(codigoSala, seatsToBuy, nombre);
     }
-
+    // agregue esto para hacer el test
     public int getPrecioTotal(){
         return precioTotal;
     }
