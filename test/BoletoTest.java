@@ -55,9 +55,10 @@ public class BoletoTest {
         RegistradoraClientes.registrarCliente(10101001, "DIEGO FIGUEROA", "Boliviano",
                 "03/01/2018");
         Cliente cliente = RegistradoraClientes.getCliente(10101001);
+        String[] seats = {"D5", "H9", "A4"};
         cliente.setCantidadTicketsGratis(3);
-        boleteria.comprarBoleto(10101001, MetodoPago.TARJETA , "A", 4,
-                "A", Semana.DOMINGO);
+        boleteria.comprarBoleto(10101001, MetodoPago.TARJETA , "A", seats,
+                Semana.DOMINGO);
 
         assertEquals(2, cliente.getCantidadTicketsGratis());
     }
