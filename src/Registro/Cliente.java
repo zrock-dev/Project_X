@@ -18,6 +18,11 @@ public class Cliente {
         premioCandyBar = new ArrayList<>();
     }
 
+    public Cliente( String fullName,String fechaNacimiento) {
+        this.fullName = fullName;
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
     public void sumarPuntos(int cantidadSumar){
         puntosTotales = cantidadSumar + puntosTotales;
     }

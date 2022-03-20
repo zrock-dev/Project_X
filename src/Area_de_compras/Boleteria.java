@@ -15,6 +15,7 @@ public class Boleteria {
     int precioPelicula;
     int precio2D = 40;
     int precio3D = 50;
+    int precioTotal;
 
     // La boleteria se comunica con las salas por medio del RoomsManager
     RoomsManager manager = new RoomsManager();
@@ -67,6 +68,23 @@ public class Boleteria {
             System.out.println("Su ticket ha sido utilizado.");
             cliente.usarTicketGratis();
         }
+    }
+
+    public void comprarBoletoSinCI(MetodoPago metodo,String codigoSala,String[] seatsToBuy,
+                                   Semana dia,ModoPresentacion modo,String nombre,String fechaNacimiento,Pelicula pelicula) {
+
+        Sala salaCliente = manager.getSala(codigoSala);
+        Cliente cliente = new Cliente(nombre,fechaNacimiento);
+        elegirModoPresentacion(modo);
+        Boleto boleto = new Boleto(cliente,precioPelicula,salaCliente,pelicula);
+        boleto.aplicarDescuento(metodo, dia);
+        precioTotal = (int) (boleto.precioPelicula) * seatsToBuy.length;
+        //me salta error este metodo
+    //    manager.buySeats(codigoSala, seatsToBuy, nombre);
+    }
+
+    public int getPrecioTotal(){
+        return precioTotal;
     }
 
     // Metodos necesita ser renovado
