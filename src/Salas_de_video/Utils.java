@@ -1,5 +1,7 @@
 package Salas_de_video;
 
+import java.util.ArrayList;
+
 public class Utils {
     static String[] generosPelicula = {
                                 "Accion", "Animacion", "Ciencia Ficcion",
