@@ -1,5 +1,5 @@
 package Salas_de_video;
-
+import java.math.*;
 import java.util.*;
 
 public class Sala {
@@ -54,5 +54,12 @@ public class Sala {
             }
     }
 
+    public void llenarCarteleraRandom(){
+        int max = 16;
+        while (carteleraSala.size()!=5){
+            int index = (int) (Math.random() * max);
+            llenarCarteleraSala(BaseDeDatos.listaPeliculas().get(index));
+        }
+    }
 }
 

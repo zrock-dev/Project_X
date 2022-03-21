@@ -51,4 +51,11 @@ class SalaTest {
 
         assertEquals(Utils.listaPeliculas(sala),respuesta);
     }
+    @Test
+    void llenadoCarteleraRandom(){
+        Sala sala = new Sala("B");
+        sala.setCapacidad(100);
+        sala.llenarCarteleraRandom();
+        System.out.println(Utils.listaPeliculas(sala));
+    }
 }
