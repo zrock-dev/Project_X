@@ -1,10 +1,10 @@
 package Salas_de_video;
-import java.math.*;
 import java.util.*;
 
 public class Sala {
     int capacidadAsientos;
-    String codigoSala;
+    int asientosVendidos;
+    public String codigoSala;
     Map<String, ArrayList<Seat>> butacasMap;
     ArrayList<Pelicula> carteleraSala;
 
@@ -25,6 +25,7 @@ public class Sala {
     public ArrayList<Pelicula> getCarteleraSala() {
         return carteleraSala;
     }
+
     public void setCapacidad ( int capacidadAsientos){
         this.capacidadAsientos = capacidadAsientos;
     }

@@ -1,16 +1,24 @@
 package Registro;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cliente {
-    int ci, puntosTotales;
-    String fullName, nacionalidad, fechaNacimiento;
+    int puntosTotales;
+    String ci, fullName, nacionalidad, fechaNacimiento;
     int cantidadTicketsGratis;
     ArrayList<String> premioCandyBar;
     // Fecha de nacimiento : 03/01/2001
 
+    public Cliente(List<String> customerData){ // customerData = [ci, fullName, nationality, birthDate]
+        this.ci = customerData.get(0);
+        this.fullName = customerData.get(1);
+        this.nacionalidad = customerData.get(2);
+        this.fechaNacimiento = customerData.get(3);
+    }
 
-    public Cliente(int ci, String fullName, String nacionalidad, String fechaNacimiento) {
+
+    public Cliente(String ci, String fullName, String nacionalidad, String fechaNacimiento) {
         this.ci = ci;
         this.fullName = fullName;
         this.nacionalidad = nacionalidad;
@@ -27,7 +35,7 @@ public class Cliente {
         puntosTotales = cantidadSumar + puntosTotales;
     }
 
-    public int getCi() {
+    public String getCi() {
         return ci; // para la llave
     }
 

@@ -13,10 +13,14 @@ public class RoomsManager {
 
     Map<String, Sala> roomsMap = new HashMap<>();
 
-    public RoomsManager(){
+    public RoomsManager(){ // Todos los metodos que estan aqui necesitan encapsulacion.
         generateRooms(roomsQuantity);
         setRoomsCapacity();
         populateRooms();
+    }
+
+    public Map<String, Sala> getRoomsMap() {
+        return roomsMap;
     }
 
     public Sala getSala(String roomCode){
@@ -75,9 +79,11 @@ public class RoomsManager {
         //letter ; number
 
         Sala sala = roomsMap.get(roomCode);
+        int seatsAmount = 0;
         Map<String, ArrayList<Seat>> seatsInRoom = sala.getButacasMap();
         for (String seatCode:
                 seatCodes) {
+            seatsAmount++;
             String columCode = String.valueOf(seatCode.charAt(0)); // also seatCode
             String aux = String.valueOf(seatCode.split(columCode)[1]);
             int numberCode  = Integer.parseInt(aux) - 1;
