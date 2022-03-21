@@ -49,13 +49,13 @@ class SalaTest {
         respuesta.add("DIEGO XD");
         respuesta.add("ENCANTO");
 
-        assertEquals(sala.listaPeliculas(),respuesta);
+        assertEquals(sala.getListaPeliculas(),respuesta);
     }
     @Test
     void llenadoCarteleraRandom(){
         Sala sala = new Sala("B");
         sala.setCapacidad(100);
         sala.llenarCarteleraRandom();
-        System.out.println(sala.listaPeliculas());
+        System.out.println(sala.getListaPeliculas());
     }
 }

@@ -62,7 +62,7 @@ public class Sala {
         }
     }
 
-    public ArrayList<String> listaPeliculas(){
+    public ArrayList<String> getListaPeliculas(){
         ArrayList<String> listaPelicula = new ArrayList<>();
         for (Pelicula pelicula : carteleraSala){
             listaPelicula.add(pelicula.nombre);
