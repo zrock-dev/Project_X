@@ -13,10 +13,14 @@ public class RoomsManager {
 
     Map<String, Sala> roomsMap = new HashMap<>();
 
-    public RoomsManager(){
+    public RoomsManager(){ // Todos los metodos que estan aqui necesitan encapsulacion.
         generateRooms(ROOMS_QUANTITY);
         setRoomsCapacity();
         populateRooms();
+    }
+
+    public Map<String, Sala> getRoomsMap() {
+        return roomsMap;
     }
 
     public Sala getSala(String roomCode){

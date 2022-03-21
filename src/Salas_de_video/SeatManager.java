@@ -12,6 +12,7 @@ public class SeatManager {
         for (Sala sala:
              roomsAvailable) {
             populateRoom(sala);
+            sala.llenarCarteleraRandom();
         }
     }
 

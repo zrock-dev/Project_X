@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PromocionTest {
     @Test
     public void BoletoGratis(){
-        Cliente cliente = new Cliente(101010,"DIEGO FIGUEROA","BOLIVIANO","29/01/2001");
+        Cliente cliente = new Cliente("101010","DIEGO FIGUEROA","BOLIVIANO","29/01/2001");
         cliente.setPuntosTotales(10000);
 
 
@@ -20,7 +20,7 @@ public class PromocionTest {
   }
   @Test
     public void PremiosCandyBarGratis(){
-      Cliente cliente = new Cliente(101010,"DIEGO FIGUEROA","BOLIVIANO","29/01/2001");
+      Cliente cliente = new Cliente("101010","DIEGO FIGUEROA","BOLIVIANO","29/01/2001");
       cliente.setPuntosTotales(10000);
 
       CanjearPromo.canjear(Premios.QUINTAOPCION,cliente);
@@ -30,7 +30,7 @@ public class PromocionTest {
   }
   @Test
     public void VariosPremiosDelCandyBar(){
-      Cliente cliente = new Cliente(101010,"DIEGO FIGUEROA","BOLIVIANO","29/01/2001");
+      Cliente cliente = new Cliente("101010","DIEGO FIGUEROA","BOLIVIANO","29/01/2001");
       cliente.setPuntosTotales(10000);
 
       CanjearPromo.canjear(Premios.QUINTAOPCION,cliente);

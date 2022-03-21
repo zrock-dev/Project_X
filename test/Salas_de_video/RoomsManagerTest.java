@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RoomsManagerTest {
     RoomsManager manager = new RoomsManager();
-    Cliente cliente = new Cliente(10101001, "DIEGO FIGUEROA", "Boliviano",
+    Cliente cliente = new Cliente("10101001", "DIEGO FIGUEROA", "Boliviano",
             "03/01/2018");
 
     /*public void fillData(){

@@ -1,5 +1,6 @@
 package Area_de_compras;
 
+import Console_interaction.Utils;
 import Registro.Cliente;
 import Registro.RegistradoraClientes;
 import Peliculas.Pelicula;
@@ -9,7 +10,7 @@ import Salas_de_video.Sala;
 import java.util.*;
 
 public class Boleteria {
-    String name;
+    public String name;
     Map<Sala,String[]> peliculasDia;
     int precioPelicula;
     int precio2D = 40;
@@ -40,7 +41,7 @@ public class Boleteria {
     }
 
 
-    public void comprarBoleto(int ci, MetodoPago metodo, String codigoSala,
+    public void comprarBoleto(String ci, MetodoPago metodo, String codigoSala,
                               String[] seatsToBuy , Semana dia, Pelicula pelicula){
         Cliente cliente = RegistradoraClientes.getCliente(ci);
         Sala salaCliente = manager.getSala(codigoSala);
@@ -65,16 +66,18 @@ public class Boleteria {
         }
     }
 
+    // Comprar boleto sin CI
     public void comprarBoleto(MetodoPago metodo,String codigoSala,String[] seatsToBuy,
-                                   Semana dia,ModoPresentacion modo,String nombre,String fechaNacimiento,Pelicula pelicula) {
+                                   Semana dia, ModoPresentacion modo ,String fullname,String fechaNacimiento,
+                              Pelicula pelicula) {
 
         Sala salaCliente = manager.getSala(codigoSala);
-        Cliente cliente = new Cliente(nombre,fechaNacimiento);
+        Cliente cliente = new Cliente(fullname, fechaNacimiento);
         elegirModoPresentacion(modo);
-        Boleto boleto = new Boleto(cliente,precioPelicula,salaCliente,pelicula);
+        Boleto boleto = new Boleto(cliente, precioPelicula, salaCliente, pelicula);
         boleto.aplicarDescuento(metodo, dia);
         precioTotal = (int) (boleto.precioPelicula) * seatsToBuy.length;
-        manager.buySeats(codigoSala, seatsToBuy, nombre);
+        manager.buySeats(codigoSala, seatsToBuy, fullname);
     }
 
     // agregue esto para hacer el test
@@ -82,20 +85,16 @@ public class Boleteria {
         return precioTotal;
     }
 
-    // Metodos necesita ser renovado
-//    public void tomarCartelerasSalas(){
-//        for (Sala sala:
-//             salaMap.values()) {
-//            peliculasDia.put(sala, sala.getCarteleraSala());
-//        }
-//    }
-
-//    public void showCartelera(){
-//        tomarCartelerasSalas();
-//        for (String[] carteleraSala:
-//             peliculasDia.values()) {
-//            System.out.println(Arrays.toString(carteleraSala));
-//        }
-//    }
+    public void showMoviesForToday(){
+        for (Sala sala:
+             manager.getRoomsMap().values()) {
+            Utils.subheader("Movies for Room-" + sala.codigoSala);
+            ArrayList<String> moviesList = sala.getListaPeliculas();
+            for (int i = 0; i < moviesList.size(); i++) {
+                String movie = moviesList.get(i);
+                System.out.println("\t" + (i + 1) + ". " + movie);
+            }
+        }
+    }
 
 }

@@ -1,7 +1,6 @@
 package Salas_de_video;
 import Peliculas.BASE_DE_DATOS;
 import Peliculas.Pelicula;
-
 import java.util.*;
 
 public class Sala {
@@ -23,8 +22,9 @@ public class Sala {
     public ArrayList<Pelicula> getCarteleraSala() {
         return carteleraSala;
     }
-    public void setCapacidad ( int capacidadAsientos){
-        this.capacidadAsientos = capacidadAsientos;
+
+    public void setCapacidad ( int seatsAmount){
+       capacidadAsientos = seatsAmount;
     }
 
     private Map<String, ArrayList<Seat>> getButacasMap () {

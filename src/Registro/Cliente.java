@@ -1,28 +1,36 @@
 package Registro;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cliente {
-     int ci;
+     String ci;
      int puntosTotales;
-     final String FULLNAME;
+     final String FULL_NAME;
     String nacionalidad;
     String fechaNacimiento;
     int cantidadTicketsGratis;
     ArrayList<String> premioCandyBar;
     // Fecha de nacimiento : 03/01/2001
 
+    public Cliente(List<String> customerData){ // customerData = [ci, fullName, nationality, birthDate]
+        this.ci = customerData.get(0);
+        this.FULL_NAME = customerData.get(1);
+        this.nacionalidad = customerData.get(2);
+        this.fechaNacimiento = customerData.get(3);
+    }
 
-    public Cliente(int ci, String fullName, String nacionalidad, String fechaNacimiento) {
+
+    public Cliente(String ci, String fullName, String nacionalidad, String fechaNacimiento) {
         this.ci = ci;
-        this.FULLNAME = fullName;
+        this.FULL_NAME = fullName;
         this.nacionalidad = nacionalidad;
         this.fechaNacimiento = fechaNacimiento;
         premioCandyBar = new ArrayList<>();
     }
 
     public Cliente(String fullName,String fechaNacimiento) {
-        this.FULLNAME = fullName;
+        this.FULL_NAME = fullName;
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -30,7 +38,7 @@ public class Cliente {
         puntosTotales = cantidadSumar + puntosTotales;
     }
 
-    public int getCi() {
+    public String getCi() {
         return ci; // para la llave
     }
 
@@ -65,7 +73,7 @@ public class Cliente {
     }
 
     public String getFullName() {
-        return FULLNAME;
+        return FULL_NAME;
     }
 
     //ESTAS DOS FUNCIONES LAS USO PARA AGREGAR UN PREMIO DEL TIPO LITERAL (LAS DEL CANDYBAR) AL CLIENTE

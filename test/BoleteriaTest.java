@@ -13,7 +13,7 @@ class BoleteriaTest {
 
     @Test
     public void comprarBoletoNormal(){
-        Cliente cliente = new Cliente(1312, "Pepe Ano", "Peru Ano", "23/12/2001");
+        Cliente cliente = new Cliente("1312", "Pepe Ano", "Peru Ano", "23/12/2001");
         boleteria.elegirModoPresentacion(ModoPresentacion.BIDIMENSIONAL);
         assertEquals(40, boleteria.getPrecioPelicula());
 
