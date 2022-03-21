@@ -16,12 +16,4 @@ public class Utils {
         }
         return abecedario;
     }
-
-    public static ArrayList<String> listaPeliculas(Sala sala){
-        ArrayList<String> listaPelicula = new ArrayList<>();
-        for (Pelicula pelicula : sala.carteleraSala){
-            listaPelicula.add(pelicula.nombre);
-        }
-        return listaPelicula;
-    }
 }

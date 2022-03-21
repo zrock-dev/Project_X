@@ -33,7 +33,7 @@ public class Sala {
         return butacasMap;
     }
 
-    public void llenarCarteleraSala (Pelicula pelicula){
+    public void InsertarPelicula (Pelicula pelicula){
         int cantidadPeliculas = carteleraSala.size();
         int calificacionPelicula = pelicula.getCalificacion();
         switch (capacidadAsientos) {
@@ -58,8 +58,16 @@ public class Sala {
         int max = 16;
         while (carteleraSala.size()!=5){
             int index = (int) (Math.random() * max);
-            llenarCarteleraSala(BaseDeDatos.listaPeliculas().get(index));
+            InsertarPelicula(BaseDeDatos.listaPeliculas().get(index));
         }
+    }
+
+    public ArrayList<String> listaPeliculas(){
+        ArrayList<String> listaPelicula = new ArrayList<>();
+        for (Pelicula pelicula : carteleraSala){
+            listaPelicula.add(pelicula.nombre);
+        }
+        return listaPelicula;
     }
 }
 

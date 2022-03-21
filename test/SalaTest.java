@@ -14,7 +14,7 @@ class SalaTest {
     void llenarCarteleraSalaTest() {
         Pelicula pelicula = new Pelicula("THE BATMAN","3 horas","Un perro vestido de negro q golpea a los malos", 10);
         sala.setCapacidad(100);
-        sala.llenarCarteleraSala(pelicula);
+        sala.InsertarPelicula(pelicula);
         int carteleraSize = sala.getCarteleraSala().size();
         assertEquals(1, carteleraSize);
     }
@@ -23,7 +23,7 @@ class SalaTest {
         //QUE PASA SI QUEREMOS PONER UNA PELICULA DE CALIFICACION 10 A UNA SALA DE 50? NO DEBERIA INSERTARSE LA PELICULA
         Pelicula pelicula = new Pelicula("THE BATMAN","3 horas","Un perro vestido de negro q golpea a los malos", 10);
         sala.setCapacidad(50);
-        sala.llenarCarteleraSala(pelicula);
+        sala.InsertarPelicula(pelicula);
         int carteleraSize = sala.getCarteleraSala().size();
         assertEquals(0, carteleraSize);
     }
@@ -36,11 +36,11 @@ class SalaTest {
         Pelicula pelicula5 = new Pelicula("ENCANTO","3 horas","Un perro vestido de negro q golpea a los malos", 10);
         Sala sala = new Sala("X");
         sala.setCapacidad(100);
-        sala.llenarCarteleraSala(pelicula);
-        sala.llenarCarteleraSala(pelicula2);
-        sala.llenarCarteleraSala(pelicula3);
-        sala.llenarCarteleraSala(pelicula4);
-        sala.llenarCarteleraSala(pelicula5);
+        sala.InsertarPelicula(pelicula);
+        sala.InsertarPelicula(pelicula2);
+        sala.InsertarPelicula(pelicula3);
+        sala.InsertarPelicula(pelicula4);
+        sala.InsertarPelicula(pelicula5);
 
         ArrayList<String> respuesta = new ArrayList<>();
         respuesta.add("THE BATMAN");
@@ -49,13 +49,13 @@ class SalaTest {
         respuesta.add("DIEGO XD");
         respuesta.add("ENCANTO");
 
-        assertEquals(Utils.listaPeliculas(sala),respuesta);
+        assertEquals(sala.listaPeliculas(),respuesta);
     }
     @Test
     void llenadoCarteleraRandom(){
         Sala sala = new Sala("B");
         sala.setCapacidad(100);
         sala.llenarCarteleraRandom();
-        System.out.println(Utils.listaPeliculas(sala));
+        System.out.println(sala.listaPeliculas());
     }
 }
