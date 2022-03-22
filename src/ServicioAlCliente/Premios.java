@@ -14,9 +14,9 @@ public enum Premios {
     QUINTAOPCION(950,"UN COMBO GRANDE DE PIPOCAS Y DOS REFRESCOS MEDIANOS MAS UNA GORRA DEL CINE","candybar"),
     SEXTAOPCION(1350,"UN COMBO GRANDE DE PIPOCAS Y DOS REFRESCOS MEDIANOS MAS UNA POLERA DEL CINE","candybar");
 
-    public final int PUNTOS;
-    public final String DESCRIPCION;
-    public final String TIPO;
+    public  int PUNTOS;
+    public  String DESCRIPCION;
+    public  String TIPO;
 
     Premios(int puntos, String descripcion, String tipo){
         this.PUNTOS = puntos;

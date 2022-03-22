@@ -5,7 +5,7 @@ import Peliculas.Pelicula;
 import java.util.*;
 
 public class Sala {
-    int capacidadAsientos;
+    static int capacidadAsientos;
     static String codigoSala;
     Map<String, ArrayList<Seat>> butacasMap;
     ArrayList<Pelicula> carteleraSala;
