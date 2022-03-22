@@ -1,10 +1,10 @@
-package Pelliculas;
+package Peliculas;
 import Salas_de_video.Utils;
 
 import java.util.ArrayList;
 
 public class Pelicula {
-    private final String nombre;
+    public final String nombre;
     private final String duracion;
     private final String descripcion;
     private int calificacion;
@@ -20,8 +20,8 @@ public class Pelicula {
     }
 
     public void setGeneros(String genero){
-        for (int i = 0; i< Utils.generosPelicula.length; i++){
-            if (genero.equals(Utils.generosPelicula[i])){
+        for (int i = 0; i< UtilsPelicula.generosPelicula.length; i++){
+            if (genero.equals(UtilsPelicula.generosPelicula[i])){
                 generos.add(genero);
                 break;
             }
@@ -36,8 +36,5 @@ public class Pelicula {
     }
     public boolean getAnimacion(){
         return generos.contains("Animacion");
-    }
-    public String getNombre() {
-        return nombre;
     }
 }

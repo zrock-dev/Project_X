@@ -1,25 +1,25 @@
 package Area_de_compras;
 
 import Registro.Cliente;
-import Pelliculas.Pelicula;
+import Peliculas.Pelicula;
 import Salas_de_video.Sala;
 
 public class Boleto {
     public double precioPelicula;
     int puntosBoleto = 50;
     Cliente cliente;
-    final Sala salaAsignada;
+    final Sala SALAASIGNADA;
     Pelicula pelicula;
 
     public Boleto(Cliente cliente, int precioPelicula, Sala salaAsignada, Pelicula pelicula){
         this.cliente = cliente;
         this.precioPelicula = precioPelicula;
-        this.salaAsignada = salaAsignada;
+        this.SALAASIGNADA = salaAsignada;
         this.pelicula=pelicula;
     }
 
     public Boleto(Sala salaAsignada){
-        this.salaAsignada = salaAsignada;
+        this.SALAASIGNADA = salaAsignada;
     }
 
      public void aplicarDescuento(MetodoPago metodo, Semana dia){

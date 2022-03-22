@@ -4,7 +4,7 @@ import Area_de_compras.MetodoPago;
 import Area_de_compras.Semana;
 import Registro.Cliente;
 import Registro.RegistradoraClientes;
-import Pelliculas.Pelicula;
+import Peliculas.Pelicula;
 import Salas_de_video.Sala;
 import org.junit.jupiter.api.Test;
 

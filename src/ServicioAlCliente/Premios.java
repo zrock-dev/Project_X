@@ -14,13 +14,13 @@ public enum Premios {
     QUINTAOPCION(950,"UN COMBO GRANDE DE PIPOCAS Y DOS REFRESCOS MEDIANOS MAS UNA GORRA DEL CINE","candybar"),
     SEXTAOPCION(1350,"UN COMBO GRANDE DE PIPOCAS Y DOS REFRESCOS MEDIANOS MAS UNA POLERA DEL CINE","candybar");
 
-    public final int puntos;
-    public final String descripcion;
-    public final String tipo;
+    public final int PUNTOS;
+    public final String DESCRIPCION;
+    public final String TIPO;
 
     Premios(int puntos, String descripcion, String tipo){
-        this.puntos = puntos;
-        this.descripcion=descripcion;
-        this.tipo=tipo;
+        this.PUNTOS = puntos;
+        this.DESCRIPCION=descripcion;
+        this.TIPO=tipo;
     }
 }

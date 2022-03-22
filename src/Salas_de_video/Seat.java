@@ -1,12 +1,12 @@
 package Salas_de_video;
 
 public class Seat {
-    final String code;
+    final String CODE;
     private String reservedUserName;
     private boolean occupied; // true = occupied
 
     public Seat(String code) {
-        this.code = code;
+        this.CODE = code;
         occupied = false;
     }
 

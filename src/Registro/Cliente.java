@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Cliente {
      int ci;
      int puntosTotales;
-     final String fullName;
+     final String FULLNAME;
     String nacionalidad;
     String fechaNacimiento;
     int cantidadTicketsGratis;
@@ -15,14 +15,14 @@ public class Cliente {
 
     public Cliente(int ci, String fullName, String nacionalidad, String fechaNacimiento) {
         this.ci = ci;
-        this.fullName = fullName;
+        this.FULLNAME = fullName;
         this.nacionalidad = nacionalidad;
         this.fechaNacimiento = fechaNacimiento;
         premioCandyBar = new ArrayList<>();
     }
 
     public Cliente(String fullName,String fechaNacimiento) {
-        this.fullName = fullName;
+        this.FULLNAME = fullName;
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -65,7 +65,7 @@ public class Cliente {
     }
 
     public String getFullName() {
-        return fullName;
+        return FULLNAME;
     }
 
     //ESTAS DOS FUNCIONES LAS USO PARA AGREGAR UN PREMIO DEL TIPO LITERAL (LAS DEL CANDYBAR) AL CLIENTE

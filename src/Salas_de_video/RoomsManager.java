@@ -6,15 +6,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RoomsManager {
-    int largeRoomSize = 100;
-    int mediumRoomSize = 80;
-    int smallRoomSize = 50;
-    int roomsQuantity = 7;
+    final int LARGEROOMSIZE = 100;
+    final int MEDIUMROOMSIZE = 80;
+    final int SMALLROOMSIZE = 50;
+    final int ROOMSQUANTITY = 7;
 
     Map<String, Sala> roomsMap = new HashMap<>();
 
     public RoomsManager(){
-        generateRooms(roomsQuantity);
+        generateRooms(ROOMSQUANTITY);
         setRoomsCapacity();
         populateRooms();
     }
@@ -42,13 +42,13 @@ public class RoomsManager {
     }
 
     void setRoomsCapacity(){
-        roomsMap.get("A").setCapacidad(largeRoomSize);
-        roomsMap.get("B").setCapacidad(largeRoomSize);
-        roomsMap.get("C").setCapacidad(largeRoomSize);
-        roomsMap.get("D").setCapacidad(mediumRoomSize);
-        roomsMap.get("E").setCapacidad(mediumRoomSize);
-        roomsMap.get("F").setCapacidad(smallRoomSize);
-        roomsMap.get("G").setCapacidad(smallRoomSize);
+        roomsMap.get("A").setCapacidad(LARGEROOMSIZE);
+        roomsMap.get("B").setCapacidad(LARGEROOMSIZE);
+        roomsMap.get("C").setCapacidad(LARGEROOMSIZE);
+        roomsMap.get("D").setCapacidad(MEDIUMROOMSIZE);
+        roomsMap.get("E").setCapacidad(MEDIUMROOMSIZE);
+        roomsMap.get("F").setCapacidad(SMALLROOMSIZE);
+        roomsMap.get("G").setCapacidad(SMALLROOMSIZE);
     }
 
     public void showRoomSeatsAvailable(String codeRoom){
@@ -60,7 +60,7 @@ public class RoomsManager {
             for (Seat seat:
                  seatsColumn) {
                 if (!seat.isOccupied()){
-                    String codeSeat = seat.code;
+                    String codeSeat = seat.CODE;
                     System.out.print(codeSeat + ", ");
                 }else {
                     System.out.print("XX" + ", ");
@@ -76,19 +76,19 @@ public class RoomsManager {
 
         Sala sala = roomsMap.get(roomCode);
         Map<String, ArrayList<Seat>> seatsInRoom = sala.butacasMap;
-        for (String seatCode:
+        for (String seatCodeClient:
                 seatCodes) {
-            String columCode = String.valueOf(seatCode.charAt(0)); // also seatCode
-            String aux = String.valueOf(seatCode.split(columCode)[1]);
+            String columCode = String.valueOf(seatCodeClient.charAt(0)); // also seatCode
+            String aux = String.valueOf(seatCodeClient.split(columCode)[1]);
             int numberCode  = Integer.parseInt(aux) - 1;
 
             ArrayList<Seat> columSeats = seatsInRoom.get(columCode);
             Seat seatUnit = columSeats.get(numberCode);
-            if (seatUnit.code.equals(seatCode) && !seatUnit.isOccupied()){
+            if (seatUnit.CODE.equals(seatCodeClient) && !seatUnit.isOccupied()){
                 seatUnit.setReservedUserName(fullNameClient);
                 seatUnit.reserve();
             }else if (seatUnit.isOccupied()){
-                System.out.println("Seat: " + seatCode + " already reserved");
+                System.out.println("Seat: " + seatCodeClient + " already reserved");
             }
         }
     }

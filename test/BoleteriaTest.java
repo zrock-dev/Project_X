@@ -3,7 +3,7 @@ import Area_de_compras.MetodoPago;
 import Area_de_compras.ModoPresentacion;
 import Area_de_compras.Semana;
 import Registro.Cliente;
-import Pelliculas.Pelicula;
+import Peliculas.Pelicula;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

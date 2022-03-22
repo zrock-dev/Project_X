@@ -6,13 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SeatManager {
-    // key = "A", value: ArrayList<"A1", "A2", "A3",....,"A10">
-    private Collection<Sala> roomsAvailable;
     private int rowQuantity = 10;
-
-    SeatManager() {
-        roomsAvailable = new ArrayList<>();
-    }
 
     void fillRooms(Collection<Sala> roomsAvailable){
         for (Sala sala:
@@ -27,6 +21,7 @@ public class SeatManager {
         int seatsCapacity = sala.capacidadAsientos;
         int columnsQuantity = seatsCapacity / rowQuantity;
         String[] columnCodes = Utils.generarAbc(columnsQuantity);
+        // key = "A", value: ArrayList<"A1", "A2", "A3",....,"A10">
 
         for (String columCode:
              columnCodes) {
