@@ -46,13 +46,13 @@ public class RoomsManager {
     }
 
     public void setRoomsCapacity(){
-        roomsMap.get("A").setCapacidad(largeRoomSize);
-        roomsMap.get("B").setCapacidad(largeRoomSize);
-        roomsMap.get("C").setCapacidad(largeRoomSize);
-        roomsMap.get("D").setCapacidad(mediumRoomSize);
-        roomsMap.get("E").setCapacidad(mediumRoomSize);
-        roomsMap.get("F").setCapacidad(smallRoomSize);
-        roomsMap.get("G").setCapacidad(smallRoomSize);
+        roomsMap.get("A").setCapacidadAsientos(largeRoomSize);
+        roomsMap.get("B").setCapacidadAsientos(largeRoomSize);
+        roomsMap.get("C").setCapacidadAsientos(largeRoomSize);
+        roomsMap.get("D").setCapacidadAsientos(mediumRoomSize);
+        roomsMap.get("E").setCapacidadAsientos(mediumRoomSize);
+        roomsMap.get("F").setCapacidadAsientos(smallRoomSize);
+        roomsMap.get("G").setCapacidadAsientos(smallRoomSize);
     }
 
     public void showRoomSeatsAvailable(String codeRoom){
@@ -97,5 +97,6 @@ public class RoomsManager {
                 System.out.println("Seat: " + seatCode + " already reserved");
             }
         }
+        sala.setAsientosVendidos(seatsAmount);
     }
 }

@@ -40,17 +40,6 @@ public class Boleteria {
         }
     }
 
-    public void modificarPrecios(ModoPresentacion modo, int nuevoPrecio){
-        switch (modo){
-            case BIDIMENSIONAL:
-                precio2D = nuevoPrecio;
-                break;
-            case TRIDIMENSIONAL:
-                precio3D = nuevoPrecio;
-                break;
-        }
-    }
-
     public void comprarBoleto(String ci, MetodoPago metodo, String codigoSala,
                               String[] seatsToBuy , Semana dia, Pelicula pelicula){
         Cliente cliente = RegistradoraClientes.getCliente(ci);
@@ -89,16 +78,23 @@ public class Boleteria {
         return precioTotal;
     }
 
-    public void showMoviesForToday(){
+    public List<String> showMoviesForToday(){
+        int index = 1;
+        List<String> todayMovies = new ArrayList<>();
+        todayMovies.add("");
+
         for (Sala sala:
              manager.getRoomsMap().values()) {
-            Utils.subheader("Movies for Room-" + sala.codigoSala);
-            ArrayList<String> moviesList = sala.getListaPeliculas();
-            for (int i = 0; i < moviesList.size(); i++) {
-                String movie = moviesList.get(i);
-                System.out.println("\t" + (i + 1) + ". " + movie);
+            for (String movie:
+                 sala.getListaPeliculas()) {
+                if (!todayMovies.contains(movie)){
+                    todayMovies.add(movie);
+                    System.out.println("\t" + index + ". " + movie);
+                    index++;
+                }
             }
         }
+        return todayMovies;
     }
 
 }

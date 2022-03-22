@@ -14,24 +14,32 @@ public class Sala {
         carteleraSala = new ArrayList<>();
     }
 
-    public void setButacasMap(Map<String, ArrayList<Seat>> butacasMap) {
-        this.butacasMap = butacasMap;
+    public int getCapacidadAsientos() {
+        return capacidadAsientos;
     }
 
-    public int getCapacidad() {
-        return capacidadAsientos;
+    public void setCapacidadAsientos(int capacidadAsientos){
+        this.capacidadAsientos = capacidadAsientos;
     }
 
     public ArrayList<Pelicula> getCarteleraSala() {
         return carteleraSala;
     }
 
-    public void setCapacidad ( int capacidadAsientos){
-        this.capacidadAsientos = capacidadAsientos;
+    public void setButacasMap(Map<String, ArrayList<Seat>> butacasMap) {
+        this.butacasMap = butacasMap;
     }
 
     public Map<String, ArrayList<Seat>> getButacasMap () {
         return butacasMap;
+    }
+
+    public void setAsientosVendidos(int asientosVendidos) {
+        this.asientosVendidos = asientosVendidos;
+    }
+
+    public int getAsientosVendidos() {
+        return asientosVendidos;
     }
 
     public void InsertarPelicula (Pelicula pelicula){

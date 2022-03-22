@@ -25,7 +25,7 @@ public class SeatManager {
     // fill room with unreserved seats.
     public void populateRoom(Sala sala){
         Map<String, ArrayList<Seat>> seatsTemp = new HashMap<>();
-        int seatsCapacity = sala.getCapacidad();
+        int seatsCapacity = sala.getCapacidadAsientos();
         int columnsQuantity = seatsCapacity / rowQuantity;
         String[] columnCodes = Utils.generarAbc(columnsQuantity);
 
