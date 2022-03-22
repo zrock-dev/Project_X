@@ -52,10 +52,10 @@ public class Boleteria {
             Boleto boleto = new Boleto(cliente, precioPelicula, salaCliente,pelicula);
             boleto.aplicarDescuento(metodo, dia);
             manager.buySeats(codigoSala, seatsToBuy, fullNameClient);
+            precioTotal=((int)boleto.precioPelicula*seatsToBuy.length);
         }
 
         else {
-
             // Este ticket ganado por premio no te permite ganar mas puntos.
             Boleto boleto = new Boleto(salaCliente);
             manager.buySeats(codigoSala, seatsToBuy, fullNameClient);
