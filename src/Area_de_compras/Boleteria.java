@@ -40,16 +40,6 @@ public class Boleteria {
         }
     }
 
-    public void modificarPrecios(ModoPresentacion modo, int nuevoPrecio){
-        switch (modo){
-            case BIDIMENSIONAL:
-                precio2D = nuevoPrecio;
-                break;
-            case TRIDIMENSIONAL:
-                precio3D = nuevoPrecio;
-                break;
-        }
-    }
 
     public void comprarBoleto(int ci, MetodoPago metodo, String codigoSala,
                               String[] seatsToBuy , Semana dia, Pelicula pelicula){
@@ -58,15 +48,21 @@ public class Boleteria {
         String fullNameClient = cliente.getFullName();
 
         if (cliente.getCantidadTicketsGratis() == 0){
+
             Boleto boleto = new Boleto(cliente, precioPelicula, salaCliente,pelicula);
             boleto.aplicarDescuento(metodo, dia);
             manager.buySeats(codigoSala, seatsToBuy, fullNameClient);
-        }else {
+        }
+
+        else {
+
             // Este ticket ganado por premio no te permite ganar mas puntos.
             Boleto boleto = new Boleto(salaCliente);
             manager.buySeats(codigoSala, seatsToBuy, fullNameClient);
             System.out.println("Su ticket ha sido utilizado.");
             cliente.usarTicketGratis();
+            precioTotal=((int)boleto.precioPelicula*seatsToBuy.length);
+
         }
     }
 
