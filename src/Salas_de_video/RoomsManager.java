@@ -6,15 +6,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RoomsManager {
-    final int LARGEROOMSIZE = 100;
-    final int MEDIUMROOMSIZE = 80;
-    final int SMALLROOMSIZE = 50;
-    final int ROOMSQUANTITY = 7;
+    final int LARGE_ROOM_SIZE = 100;
+    final int MEDIUM_ROOM_SIZE = 80;
+    final int SMALL_ROOM_SIZE = 50;
+    final int ROOMS_QUANTITY = 7;
 
     Map<String, Sala> roomsMap = new HashMap<>();
 
     public RoomsManager(){
-        generateRooms(ROOMSQUANTITY);
+        generateRooms(ROOMS_QUANTITY);
         setRoomsCapacity();
         populateRooms();
     }
@@ -23,7 +23,7 @@ public class RoomsManager {
         return roomsMap.get(roomCode);
     }
 
-    void generateRooms(int roomsAmount){
+    private void generateRooms(int roomsAmount){
         String[] roomsCodes = Utils.generarAbc(roomsAmount);
         for (String letterCode:
              roomsCodes) {
@@ -35,20 +35,20 @@ public class RoomsManager {
         populateRooms();
     }
 
-    void populateRooms(){
+    private void populateRooms(){
         Collection<Sala> listRooms =  roomsMap.values();
         SeatManager seatManager = new SeatManager();
         seatManager.fillRooms(listRooms);
     }
 
-    void setRoomsCapacity(){
-        roomsMap.get("A").setCapacidad(LARGEROOMSIZE);
-        roomsMap.get("B").setCapacidad(LARGEROOMSIZE);
-        roomsMap.get("C").setCapacidad(LARGEROOMSIZE);
-        roomsMap.get("D").setCapacidad(MEDIUMROOMSIZE);
-        roomsMap.get("E").setCapacidad(MEDIUMROOMSIZE);
-        roomsMap.get("F").setCapacidad(SMALLROOMSIZE);
-        roomsMap.get("G").setCapacidad(SMALLROOMSIZE);
+    private void setRoomsCapacity(){
+        roomsMap.get("A").setCapacidad(LARGE_ROOM_SIZE);
+        roomsMap.get("B").setCapacidad(LARGE_ROOM_SIZE);
+        roomsMap.get("C").setCapacidad(LARGE_ROOM_SIZE);
+        roomsMap.get("D").setCapacidad(MEDIUM_ROOM_SIZE);
+        roomsMap.get("E").setCapacidad(MEDIUM_ROOM_SIZE);
+        roomsMap.get("F").setCapacidad(SMALL_ROOM_SIZE);
+        roomsMap.get("G").setCapacidad(SMALL_ROOM_SIZE);
     }
 
     public void showRoomSeatsAvailable(String codeRoom){
