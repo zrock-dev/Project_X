@@ -18,4 +18,8 @@ public class RegistradoraClientes {
     public static Cliente getCliente(String ci) {
         return registroClientes.get(ci);
     }
+
+    public static boolean isCliente(String ci){
+        return registroClientes.containsKey(ci);
+    }
 }

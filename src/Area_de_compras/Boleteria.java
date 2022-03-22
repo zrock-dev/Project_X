@@ -1,4 +1,5 @@
 package Area_de_compras;
+import Console_interaction.Utils;
 import Registro.Cliente;
 import Registro.RegistradoraClientes;
 import Peliculas.Pelicula;
@@ -43,21 +44,21 @@ public class Boleteria {
         }
     }
 
-    void getData(){
+    void getInfoCompra(){
         showSimpleLine();
-        System.out.print("Select display mode: ");
-        ModoPresentacion modo;
-        switch (getOption()){
-            case 1:
-                modo = ModoPresentacion.BIDIMENSIONAL;
-                break;
-            default:
-                modo = ModoPresentacion.TRIDIMENSIONAL;
+        // Set Prize
+        System.out.println("Select display mode: ");
+        Utils.showOptions(new String[]{"2D", "3D"});
+        if (getOption() == 1){
+            precioPelicula = precio2D;
+        }else {
+            precioPelicula = precio3D;
         }
-        elegirModoPresentacion(modo);
 
-        System.out.print("Select paymentType method: ");
-
+        // Set Payment mode
+        showSimpleLine();
+        System.out.println("Select paymentType method");
+        Utils.showOptions(new String[]{"Tarjeta", "QR", "Efectivo"});
         switch (getOption()){
             case 1:
                 paymentType = MetodoPago.TARJETA;
@@ -71,37 +72,39 @@ public class Boleteria {
     }
 
     public void comprarBoleto(String ci, String codigoSala, Pelicula pelicula){
-        getData();
+
         Cliente cliente = RegistradoraClientes.getCliente(ci);
         Sala salaCliente = manager.getSala(codigoSala);
         String fullNameClient = cliente.getFullName();
+        subheader("Welcome " + fullNameClient);
+
+        getInfoCompra();
 
         if (cliente.getCantidadTicketsGratis() == 0){
             Boleto boleto = new Boleto(cliente, precioPelicula, pelicula);
             boleto.aplicarDescuento(paymentType, Semana.whatDayIsToday());
-            manager.buySeats(codigoSala, fullNameClient);
+            int amountSeats = manager.buySeats(codigoSala, cliente.getFullName());
+            precioTotal = (int) (boleto.precioPelicula) * amountSeats;
         }else {
             // Este ticket ganado por premio no te permite ganar mas puntos.
-            Boleto boleto = new Boleto();
-            manager.buySeats(codigoSala, fullNameClient);
-            System.out.println("Su ticket ha sido utilizado.");
+            // Y no aplica a descuentos.
+            int amountSeats = manager.buySeats(codigoSala, cliente.getFullName());
+            precioTotal = (int) (precioPelicula) * amountSeats;
             cliente.usarTicketGratis();
-            precioTotal=((int)boleto.precioPelicula*seatsToBuy.length);
-
+            System.out.println("Su ticket ha sido utilizado.");
         }
     }
 
     // Comprar boleto sin CI
-    public void comprarBoleto(MetodoPago metodo,String codigoSala, ArrayList<String> seatsToBuy,
-                                   Semana dia, ModoPresentacion modo, String fullname,String fechaNacimiento,
-                              Pelicula pelicula) {
+    public void comprarBoleto(String codigoSala, Pelicula pelicula) {
+        subheader("Receipt Infomation");
+        Cliente cliente = new Cliente(Utils.getCustomerInfo());
+        getInfoCompra();
 
-        Cliente cliente = new Cliente(fullname, fechaNacimiento);
-        elegirModoPresentacion(modo);
         Boleto boleto = new Boleto(cliente, precioPelicula, pelicula);
-        boleto.aplicarDescuento(metodo, dia);
-        precioTotal = (int) (boleto.precioPelicula) * seatsToBuy.size();
-        manager.buySeats(codigoSala, fullname);
+        boleto.aplicarDescuento(paymentType, Semana.whatDayIsToday());
+        int amountSeats = manager.buySeats(codigoSala, cliente.getFullName());
+        precioTotal = (int) (boleto.precioPelicula) * amountSeats;
     }
 
     // agregue esto para hacer el test
@@ -129,6 +132,7 @@ public class Boleteria {
         return todayMovies;
     }
 
+    // To check who is playing the movie
     public List<Sala> availableMovie(String movie){
         List<Sala> movieOnSalas = new ArrayList<>();
         for (Sala sala:

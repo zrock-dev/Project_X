@@ -39,13 +39,13 @@ class RoomsManagerTest {
         manager.showRoomSeatsAvailable(sala.codigoSala);
 
         System.out.println("\n");
-        manager.buySeats("G", seats, fullName);
+//        manager.buySeats("G", seats, fullName);
 
         //Available seats
         manager.showRoomSeatsAvailable(sala.codigoSala);
 
         System.out.println("\n");
-        manager.buySeats("G", seats, fullName);
+//        manager.buySeats("G", seats, fullName);
     }
 
 }

@@ -8,18 +8,12 @@ public class Boleto {
     public double precioPelicula;
     int puntosBoleto = 50;
     Cliente cliente;
-    final Sala SALA_ASIGNADA;
     Pelicula pelicula;
 
     public Boleto(Cliente cliente, int precioPelicula, Pelicula pelicula){
         this.cliente = cliente;
         this.precioPelicula = precioPelicula;
         this.pelicula = pelicula;
-    }
-    public Boleto(){
-
-    public Boleto(Sala salaAsignada){
-        this.SALA_ASIGNADA = salaAsignada;
     }
 
      public void aplicarDescuento(MetodoPago metodo, Semana dia){

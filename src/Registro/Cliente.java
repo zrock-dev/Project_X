@@ -29,7 +29,7 @@ public class Cliente {
         premioCandyBar = new ArrayList<>();
     }
 
-    public Cliente(String fullName,String fechaNacimiento) {
+    public Cliente(String fullName, String fechaNacimiento) {
         this.FULL_NAME = fullName;
         this.fechaNacimiento = fechaNacimiento;
     }

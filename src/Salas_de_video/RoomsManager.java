@@ -83,8 +83,7 @@ public class RoomsManager {
         }
     }
 
-    ArrayList<String> getSeatsCodes(String salaCode){
-        subheader("Available seats for Sala" + salaCode);
+    public ArrayList<String> getSeatsCodes(String salaCode){
         showRoomSeatsAvailable(salaCode);
         showSimpleLine();
         String option = "Y";
@@ -97,16 +96,16 @@ public class RoomsManager {
         return seatsClient;
     }
 
-    public void buySeats(String roomCode, String fullNameClient){
+    public int buySeats(String roomCode, String fullNameClient){
         //   A         1
         //letter ; number
 
         Sala sala = roomsMap.get(roomCode);
-        ArrayList<String> seatCodes = getSeatsCodes(sala.codigoSala);
+        ArrayList<String> seatCodes = getSeatsCodes(sala.codigoSala);  // Obtain user seats
         Map<String, ArrayList<Seat>> seatsInRoom = sala.butacasMap;
         for (String seatCodeClient:
                 seatCodes) {
-            String columCode = String.valueOf(seatCodeClient.charAt(0)); // also seatCode
+            String columCode = String.valueOf(seatCodeClient.charAt(0)); // also seatCodeClient
             String aux = String.valueOf(seatCodeClient.split(columCode)[1]);
             int numberCode  = Integer.parseInt(aux) - 1;
 
@@ -119,5 +118,7 @@ public class RoomsManager {
                 System.out.println("Seat: " + seatCodeClient + " already reserved");
             }
         }
+        sala.setAsientosVendidos(seatCodes.size());
+        return seatCodes.size();
     }
 }

@@ -6,6 +6,8 @@ import Registro.Cliente;
 import Peliculas.Pelicula;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class BoleteriaTest {
@@ -30,19 +32,7 @@ class BoleteriaTest {
         seats.add("B2");
         seats.add("C3");
         seats.add("D4");
-        boleteria.comprarBoleto(MetodoPago.TARJETA,"A",seats,Semana.JUEVES,ModoPresentacion.BIDIMENSIONAL,"Paco","16/06/2018",pelicula);
-
+//        boleteria.comprarBoleto(MetodoPago.TARJETA,"A",seats,Semana.JUEVES,ModoPresentacion.BIDIMENSIONAL,"Paco","16/06/2018",pelicula);
         assertEquals(102,boleteria.getPrecioTotal());
     }
-
-    @Test
-    public void testComprarBoleto(){
-        Pelicula pelicula = new Pelicula("PEPPA PIG", "2 horas", "Un cerdo que habla", 10);
-        pelicula.setGeneros("Accion");
-        String[] seats = {"A2","C3","A4"};
-        boleteria.comprarBoleto(MetodoPago.TARJETA,"A",seats,Semana.JUEVES,ModoPresentacion.BIDIMENSIONAL,"Paco","16/06/2018",pelicula);
-        assertEquals(105, boleteria.getPrecioTotal());
-    }
-
-
 }
