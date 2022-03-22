@@ -1,18 +1,18 @@
 package Salas_de_video;
-import Peliculas.BASE_DE_DATOS;
-import Peliculas.Pelicula;
+import Informacion_de_peliculas.BASE_DE_DATOS;
+import Informacion_de_peliculas.Pelicula;
 import java.util.*;
 
 public class Sala {
-    static int capacidadAsientos;
-    static String codigoSala;
+    public static int capacidadAsientos;
+    public static String codigoSala;
     int asientosVendidos;
     Map<String, ArrayList<Seat>> butacasMap;
     ArrayList<Pelicula> carteleraSala;
 
     public Sala(String codigoSala) {
         butacasMap = new Hashtable<>();
-        this.codigoSala = codigoSala;
+        Sala.codigoSala = codigoSala;
         carteleraSala = new ArrayList<>();
     }
 
@@ -84,7 +84,7 @@ public class Sala {
     public Pelicula getPelicula(String namePelicula){
         for (Pelicula pelicula:
                 carteleraSala) {
-            if (pelicula.nombre.equals(namePelicula)){
+            if (pelicula.NOMBRE.equals(namePelicula)){
                 return pelicula;
             }
         }

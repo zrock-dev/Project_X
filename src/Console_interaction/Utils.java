@@ -1,8 +1,8 @@
 package Console_interaction;
 
 import Area_de_compras.Boleteria;
+import Informacion_de_peliculas.Pelicula;
 import Registro.RegistradoraClientes;
-import Salas_de_video.Pelicula;
 import Salas_de_video.Sala;
 
 import java.util.ArrayList;
@@ -77,8 +77,8 @@ public class Utils {
         int index = 1;
         for (Sala sala:
                 availableSalas) {
-            String row1 =index + ". Sala " + sala.codigoSala;
-            String occupancy = "[" + sala.getAsientosVendidos() + "/" + sala.capacidadAsientos + "]";
+            String row1 =index + ". Sala " + Sala.codigoSala;
+            String occupancy = "[" + sala.getAsientosVendidos() + "/" + Sala.capacidadAsientos + "]";
             int fixedSpace = characters - row1.length() - occupancy.length() * 2;
             System.out.println( "\t" + row1 + " ".repeat(fixedSpace) + occupancy);
             index++;
@@ -88,7 +88,7 @@ public class Utils {
         showSimpleLine();
         System.out.println("Which Sala do you want?");
         Sala salaClient = availableSalas.get(getOption() - 1);
-        codeSala = salaClient.codigoSala;
+        codeSala = Sala.codigoSala;
         peliculaClient = salaClient.getPelicula(clientMovie);
     }
 

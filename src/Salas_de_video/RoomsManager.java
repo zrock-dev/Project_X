@@ -1,7 +1,4 @@
 package Salas_de_video;
-
-import Registro.Cliente;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -101,7 +98,7 @@ public class RoomsManager {
         //letter ; number
 
         Sala sala = roomsMap.get(roomCode);
-        ArrayList<String> seatCodes = getSeatsCodes(sala.codigoSala);  // Obtain user seats
+        ArrayList<String> seatCodes = getSeatsCodes(Sala.codigoSala);  // Obtain user seats
         Map<String, ArrayList<Seat>> seatsInRoom = sala.butacasMap;
         for (String seatCodeClient:
                 seatCodes) {

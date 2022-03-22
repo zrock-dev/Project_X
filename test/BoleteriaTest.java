@@ -1,9 +1,7 @@
 import Area_de_compras.Boleteria;
-import Area_de_compras.MetodoPago;
 import Area_de_compras.ModoPresentacion;
-import Area_de_compras.Semana;
 import Registro.Cliente;
-import Peliculas.Pelicula;
+import Informacion_de_peliculas.Pelicula;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -32,6 +30,7 @@ class BoleteriaTest {
         seats.add("B2");
         seats.add("C3");
         seats.add("D4");
+        // Necesita arreglo.
 //        boleteria.comprarBoleto(MetodoPago.TARJETA,"A",seats,Semana.JUEVES,ModoPresentacion.BIDIMENSIONAL,"Paco","16/06/2018",pelicula);
         assertEquals(102,boleteria.getPrecioTotal());
     }

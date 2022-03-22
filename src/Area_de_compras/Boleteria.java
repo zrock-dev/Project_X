@@ -2,7 +2,7 @@ package Area_de_compras;
 import Console_interaction.Utils;
 import Registro.Cliente;
 import Registro.RegistradoraClientes;
-import Peliculas.Pelicula;
+import Informacion_de_peliculas.Pelicula;
 import Salas_de_video.RoomsManager;
 import Salas_de_video.Sala;
 
@@ -89,7 +89,7 @@ public class Boleteria {
             // Este ticket ganado por premio no te permite ganar mas puntos.
             // Y no aplica a descuentos.
             int amountSeats = manager.buySeats(codigoSala, cliente.getFullName());
-            precioTotal = (int) (precioPelicula) * amountSeats;
+            precioTotal = precioPelicula * amountSeats;
             cliente.usarTicketGratis();
             System.out.println("Su ticket ha sido utilizado.");
         }

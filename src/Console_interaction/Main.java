@@ -13,7 +13,7 @@ public class Main {
         // Menu
         Utils.showGeneralMenu();
 
-        switch (Utils.getOption()){
+        switch (Utils.getOption()) {
             case 1:
                 Utils.getMovie(boleteria);
                 Utils.buy(boleteria);
@@ -25,6 +25,5 @@ public class Main {
             default:
                 System.out.println("do");
         }
-
     }
 }

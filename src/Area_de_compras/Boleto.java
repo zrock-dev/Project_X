@@ -1,8 +1,7 @@
 package Area_de_compras;
 
 import Registro.Cliente;
-import Peliculas.Pelicula;
-import Salas_de_video.Sala;
+import Informacion_de_peliculas.Pelicula;
 
 public class Boleto {
     public double precioPelicula;

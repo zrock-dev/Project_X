@@ -1,4 +1,4 @@
-import Peliculas.Pelicula;
+import Informacion_de_peliculas.Pelicula;
 import Salas_de_video.Sala;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,7 @@ class SalaTest {
     @Test
     void llenarCarteleraSalaTest() {
         Pelicula pelicula = new Pelicula("THE BATMAN","3 horas","Un perro vestido de negro q golpea a los malos", 10);
-        sala.setCapacidadAsientos(100);
+        sala.setCapacidad(100);
         sala.InsertarPelicula(pelicula);
         int carteleraSize = sala.getCarteleraSala().size();
         assertEquals(1, carteleraSize);
@@ -21,7 +21,7 @@ class SalaTest {
     void LlenarSalaconPeliculaIncorrecta(){
         //QUE PASA SI QUEREMOS PONER UNA PELICULA DE CALIFICACION 10 A UNA SALA DE 50? NO DEBERIA INSERTARSE LA PELICULA
         Pelicula pelicula = new Pelicula("THE BATMAN","3 horas","Un perro vestido de negro q golpea a los malos", 10);
-        sala.setCapacidadAsientos(50);
+        sala.setCapacidad(50);
         sala.InsertarPelicula(pelicula);
         int carteleraSize = sala.getCarteleraSala().size();
         assertEquals(0, carteleraSize);
@@ -34,7 +34,7 @@ class SalaTest {
         Pelicula pelicula4 = new Pelicula("DIEGO XD","3 horas","Un perro vestido de negro q golpea a los malos", 10);
         Pelicula pelicula5 = new Pelicula("ENCANTO","3 horas","Un perro vestido de negro q golpea a los malos", 10);
         Sala sala = new Sala("X");
-        sala.setCapacidadAsientos(100);
+        sala.setCapacidad(100);
         sala.InsertarPelicula(pelicula);
         sala.InsertarPelicula(pelicula2);
         sala.InsertarPelicula(pelicula3);
@@ -53,7 +53,7 @@ class SalaTest {
     @Test
     void llenadoCarteleraRandom(){
         Sala sala = new Sala("B");
-        sala.setCapacidadAsientos(100);
+        sala.setCapacidad(100);
         sala.llenarCarteleraRandom();
         System.out.println(sala.getListaPeliculas());
     }

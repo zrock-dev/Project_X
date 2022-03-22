@@ -1,4 +1,4 @@
-package Peliculas;
+package Informacion_de_peliculas;
 import java.util.ArrayList;
 
 public final class BASE_DE_DATOS {
