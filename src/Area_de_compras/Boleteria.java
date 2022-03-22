@@ -40,16 +40,6 @@ public class Boleteria {
         }
     }
 
-    public void modificarPrecios(ModoPresentacion modo, int nuevoPrecio){
-        switch (modo){
-            case BIDIMENSIONAL:
-                precio2D = nuevoPrecio;
-                break;
-            case TRIDIMENSIONAL:
-                precio3D = nuevoPrecio;
-                break;
-        }
-    }
 
     public void comprarBoleto(int ci, MetodoPago metodo, String codigoSala,
                               String[] seatsToBuy , Semana dia, Pelicula pelicula){
