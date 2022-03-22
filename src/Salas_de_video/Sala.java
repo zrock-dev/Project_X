@@ -78,5 +78,15 @@ public class Sala {
         }
         return listaPelicula;
     }
+
+    public Pelicula getPelicula(String namePelicula){
+        for (Pelicula pelicula:
+                carteleraSala) {
+            if (pelicula.nombre.equals(namePelicula)){
+                return pelicula;
+            }
+        }
+        return carteleraSala.get(1);
+    }
 }
 

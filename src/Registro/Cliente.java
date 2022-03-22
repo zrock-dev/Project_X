@@ -26,7 +26,7 @@ public class Cliente {
         premioCandyBar = new ArrayList<>();
     }
 
-    public Cliente( String fullName,String fechaNacimiento) {
+    public Cliente( String fullName, String fechaNacimiento) {
         this.fullName = fullName;
         this.fechaNacimiento = fechaNacimiento;
     }

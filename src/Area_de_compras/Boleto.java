@@ -15,9 +15,6 @@ public class Boleto {
         this.precioPelicula = precioPelicula;
         this.pelicula = pelicula;
     }
-    public Boleto(){
-
-    }
 
     public void aplicarDescuento(MetodoPago metodo, Semana dia){
         int edadCliente = cliente.getEdad();
