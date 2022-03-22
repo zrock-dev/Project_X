@@ -3,8 +3,11 @@ package Registro;
 import java.util.ArrayList;
 
 public class Cliente {
-    int ci, puntosTotales;
-    String fullName, nacionalidad, fechaNacimiento;
+     int ci;
+     int puntosTotales;
+     final String FULLNAME;
+    String nacionalidad;
+    String fechaNacimiento;
     int cantidadTicketsGratis;
     ArrayList<String> premioCandyBar;
     // Fecha de nacimiento : 03/01/2001
@@ -12,14 +15,14 @@ public class Cliente {
 
     public Cliente(int ci, String fullName, String nacionalidad, String fechaNacimiento) {
         this.ci = ci;
-        this.fullName = fullName;
+        this.FULLNAME = fullName;
         this.nacionalidad = nacionalidad;
         this.fechaNacimiento = fechaNacimiento;
         premioCandyBar = new ArrayList<>();
     }
 
-    public Cliente( String fullName,String fechaNacimiento) {
-        this.fullName = fullName;
+    public Cliente(String fullName,String fechaNacimiento) {
+        this.FULLNAME = fullName;
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -62,7 +65,7 @@ public class Cliente {
     }
 
     public String getFullName() {
-        return fullName;
+        return FULLNAME;
     }
 
     //ESTAS DOS FUNCIONES LAS USO PARA AGREGAR UN PREMIO DEL TIPO LITERAL (LAS DEL CANDYBAR) AL CLIENTE
