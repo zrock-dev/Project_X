@@ -20,14 +20,6 @@ public class Sala {
         return capacidadAsientos;
     }
 
-    public void setCapacidadAsientos(int capacidadAsientos){
-        this.capacidadAsientos = capacidadAsientos;
-    }
-
-    public void setButacasMap(Map<String, ArrayList<Seat>> butacasMap) {
-        this.butacasMap = butacasMap;
-    }
-
     public ArrayList<Pelicula> getCarteleraSala() {
         return carteleraSala;
     }

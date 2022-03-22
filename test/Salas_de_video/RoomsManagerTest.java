@@ -3,6 +3,8 @@ package Salas_de_video;
 import Registro.Cliente;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class RoomsManagerTest {
@@ -26,7 +28,11 @@ class RoomsManagerTest {
 
     @Test
     public void buySeatTest(){
-        String[] seats = {"A1", "B1", "E10"};
+        ArrayList<String> seats = new ArrayList<>();
+        seats.add("A1");
+        seats.add("B2");
+        seats.add("C3");
+        seats.add("D4");
         Sala sala = manager.getSala("G");
         String fullName = cliente.getFullName();
         //Available seats

@@ -11,12 +11,12 @@ public class Boleto {
     final Sala SALA_ASIGNADA;
     Pelicula pelicula;
 
-    public Boleto(Cliente cliente, int precioPelicula, Sala salaAsignada, Pelicula pelicula){
+    public Boleto(Cliente cliente, int precioPelicula, Pelicula pelicula){
         this.cliente = cliente;
         this.precioPelicula = precioPelicula;
-        this.SALA_ASIGNADA = salaAsignada;
-        this.pelicula=pelicula;
+        this.pelicula = pelicula;
     }
+    public Boleto(){
 
     public Boleto(Sala salaAsignada){
         this.SALA_ASIGNADA = salaAsignada;

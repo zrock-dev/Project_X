@@ -1,9 +1,13 @@
 package Salas_de_video;
 
+import Registro.Cliente;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+
+import static Console_interaction.Utils.*;
 
 public class RoomsManager {
     final int LARGE_ROOM_SIZE = 100;
@@ -14,7 +18,7 @@ public class RoomsManager {
     Map<String, Sala> roomsMap = new HashMap<>();
 
     public RoomsManager(){ // Todos los metodos que estan aqui necesitan encapsulacion.
-        generateRooms(ROOMS_QUANTITY);
+        generateRooms();
         setRoomsCapacity();
         populateRooms();
     }
@@ -35,8 +39,6 @@ public class RoomsManager {
             // Sala con asientos.
             roomsMap.put(letterCode, sala);
         }
-        setRoomsCapacity();
-        populateRooms();
     }
 
     private void populateRooms(){
@@ -56,29 +58,51 @@ public class RoomsManager {
     }
 
     public void showRoomSeatsAvailable(String codeRoom){
+        for (int i = 1; i <= 10; i++) {
+            System.out.print("\t" + i + " ");
+        }
+        System.out.print("\n");
+
         Sala sala = roomsMap.get(codeRoom);
         Map<String, ArrayList<Seat>> seatsRoom = sala.butacasMap;
-
+        int letter = 0;
         for (ArrayList<Seat> seatsColumn:
              seatsRoom.values()) {
+            System.out.print((char) (65 + letter) + "| ");
             for (Seat seat:
                  seatsColumn) {
                 if (!seat.isOccupied()){
                     String codeSeat = seat.CODE;
-                    System.out.print(codeSeat + ", ");
+                    System.out.print(" _ " + " ");
                 }else {
-                    System.out.print("XX" + ", ");
+                    System.out.print(" R " + " ");
                 }
             }
-            System.out.println(" ");
+            letter++;
+            System.out.println("|");
         }
     }
 
-    public void buySeats(String roomCode, String[] seatCodes, String fullNameClient){
+    ArrayList<String> getSeatsCodes(String salaCode){
+        subheader("Available seats for Sala" + salaCode);
+        showRoomSeatsAvailable(salaCode);
+        showSimpleLine();
+        String option = "Y";
+        ArrayList<String> seatsClient = new ArrayList<>();
+        while (option.equals("Y")){
+            System.out.print("Please insert the code of your Seat: ");
+            seatsClient.add(sn.next());
+            System.out.print("Do you want to buy another seat: Y/N: "); option = sn.next();
+        }
+        return seatsClient;
+    }
+
+    public void buySeats(String roomCode, String fullNameClient){
         //   A         1
         //letter ; number
 
         Sala sala = roomsMap.get(roomCode);
+        ArrayList<String> seatCodes = getSeatsCodes(sala.codigoSala);
         Map<String, ArrayList<Seat>> seatsInRoom = sala.butacasMap;
         for (String seatCodeClient:
                 seatCodes) {
@@ -95,6 +119,5 @@ public class RoomsManager {
                 System.out.println("Seat: " + seatCodeClient + " already reserved");
             }
         }
-        sala.setAsientosVendidos(seatsAmount);
     }
 }
