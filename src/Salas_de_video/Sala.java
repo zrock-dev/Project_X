@@ -2,7 +2,7 @@ package Salas_de_video;
 import java.util.*;
 
 public class Sala {
-    int capacidadAsientos;
+    public int capacidadAsientos;
     int asientosVendidos;
     public String codigoSala;
     Map<String, ArrayList<Seat>> butacasMap;
