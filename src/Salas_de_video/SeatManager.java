@@ -7,14 +7,14 @@ import java.util.Map;
 
 public class SeatManager {
     // key = "A", value: ArrayList<"A1", "A2", "A3",....,"A10">
-    Collection<Sala> roomsAvailable;
-    int rowQuantity = 10;
+    private Collection<Sala> roomsAvailable;
+    private int rowQuantity = 10;
 
-    public SeatManager() {
+    SeatManager() {
         roomsAvailable = new ArrayList<>();
     }
 
-    public void fillRooms(Collection<Sala> roomsAvailable){
+    void fillRooms(Collection<Sala> roomsAvailable){
         for (Sala sala:
              roomsAvailable) {
             populateRoom(sala);
@@ -22,9 +22,9 @@ public class SeatManager {
     }
 
     // fill room with unreserved seats.
-    public void populateRoom(Sala sala){
+    void populateRoom(Sala sala){
         Map<String, ArrayList<Seat>> seatsTemp = new HashMap<>();
-        int seatsCapacity = sala.getCapacidad();
+        int seatsCapacity = sala.capacidadAsientos;
         int columnsQuantity = seatsCapacity / rowQuantity;
         String[] columnCodes = Utils.generarAbc(columnsQuantity);
 

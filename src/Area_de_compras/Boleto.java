@@ -1,14 +1,14 @@
 package Area_de_compras;
 
 import Registro.Cliente;
-import Salas_de_video.Pelicula;
+import Pelliculas.Pelicula;
 import Salas_de_video.Sala;
 
 public class Boleto {
     public double precioPelicula;
     int puntosBoleto = 50;
     Cliente cliente;
-    Sala salaAsignada;
+    final Sala salaAsignada;
     Pelicula pelicula;
 
     public Boleto(Cliente cliente, int precioPelicula, Sala salaAsignada, Pelicula pelicula){
@@ -22,7 +22,7 @@ public class Boleto {
         this.salaAsignada = salaAsignada;
     }
 
-    public void aplicarDescuento(MetodoPago metodo, Semana dia){
+     public void aplicarDescuento(MetodoPago metodo, Semana dia){
         int edadCliente = cliente.getEdad();
         double precio = precioPelicula;
         int puntos = puntosBoleto;

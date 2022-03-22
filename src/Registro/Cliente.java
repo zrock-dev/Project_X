@@ -3,8 +3,11 @@ package Registro;
 import java.util.ArrayList;
 
 public class Cliente {
-    int ci, puntosTotales;
-    String fullName, nacionalidad, fechaNacimiento;
+     int ci;
+     int puntosTotales;
+     final String fullName;
+    String nacionalidad;
+    String fechaNacimiento;
     int cantidadTicketsGratis;
     ArrayList<String> premioCandyBar;
     // Fecha de nacimiento : 03/01/2001
@@ -18,7 +21,7 @@ public class Cliente {
         premioCandyBar = new ArrayList<>();
     }
 
-    public Cliente( String fullName,String fechaNacimiento) {
+    public Cliente(String fullName,String fechaNacimiento) {
         this.fullName = fullName;
         this.fechaNacimiento = fechaNacimiento;
     }

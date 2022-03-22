@@ -25,7 +25,7 @@ public class PromocionTest {
 
       CanjearPromo.canjear(Premios.QUINTAOPCION,cliente);
       ArrayList<String> respuesta = new ArrayList<>();
-      respuesta.add(Premios.QUINTAOPCION.getDescripcion());
+      respuesta.add(Premios.QUINTAOPCION.descripcion);
       assertEquals(cliente.getPremioCandyBar(),respuesta);
   }
   @Test
@@ -36,8 +36,8 @@ public class PromocionTest {
       CanjearPromo.canjear(Premios.QUINTAOPCION,cliente);
       CanjearPromo.canjear(Premios.CUARTAOPCION,cliente);
       ArrayList<String> respuesta = new ArrayList<>();
-      respuesta.add(Premios.QUINTAOPCION.getDescripcion());
-      respuesta.add(Premios.CUARTAOPCION.getDescripcion());
+      respuesta.add(Premios.QUINTAOPCION.descripcion);
+      respuesta.add(Premios.CUARTAOPCION.descripcion);
       assertEquals(cliente.getPremioCandyBar(),respuesta);
   }
 

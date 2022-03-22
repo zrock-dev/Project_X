@@ -2,10 +2,9 @@ package Area_de_compras;
 
 import Registro.Cliente;
 import Registro.RegistradoraClientes;
-import Salas_de_video.Pelicula;
+import Pelliculas.Pelicula;
 import Salas_de_video.RoomsManager;
 import Salas_de_video.Sala;
-import Salas_de_video.Utils;
 
 import java.util.*;
 

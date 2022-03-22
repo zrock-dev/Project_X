@@ -1,6 +1,5 @@
-import Salas_de_video.Pelicula;
+import Pelliculas.Pelicula;
 import Salas_de_video.Sala;
-import Salas_de_video.Utils;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

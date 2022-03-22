@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RegistradoraClientes {
-    static Map<Integer, Cliente> registroClientes = new HashMap<>();
+    private static Map<Integer, Cliente> registroClientes = new HashMap<>();
 
 
     public static void registrarCliente(int ci, String fullName, String nacionalidad, String fechaNacimiento){

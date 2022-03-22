@@ -1,7 +1,7 @@
-package Salas_de_video;
+package Pelliculas;
 import java.util.ArrayList;
 
-public class BaseDeDatos {
+public final class BaseDeDatos {
 
     public static ArrayList<Pelicula> listaPeliculas() {
         ArrayList<Pelicula>peliculasDisponibles = new ArrayList<>();
