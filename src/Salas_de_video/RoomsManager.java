@@ -27,8 +27,8 @@ public class RoomsManager {
         return roomsMap.get(roomCode);
     }
 
-    private void generateRooms(int roomsAmount){
-        String[] roomsCodes = Utils.generarAbc(roomsAmount);
+    private void generateRooms(){
+        String[] roomsCodes = Utils.generarAbc(ROOMS_QUANTITY);
         for (String letterCode:
              roomsCodes) {
             Sala sala = new Sala(letterCode);
@@ -95,5 +95,6 @@ public class RoomsManager {
                 System.out.println("Seat: " + seatCodeClient + " already reserved");
             }
         }
+        sala.setAsientosVendidos(seatsAmount);
     }
 }

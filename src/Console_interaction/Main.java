@@ -2,6 +2,8 @@ package Console_interaction;
 import Area_de_compras.Boleteria;
 import Registro.RegistradoraClientes;
 
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -15,8 +17,7 @@ public class Main {
 
         switch (Utils.getOption()){
             case 1:
-                Utils.subheader("Movies for today");
-                boleteria.showMoviesForToday();
+                Utils.getMovie(boleteria);
                 break;
             case 2:
                 Utils.subheader("Registration Menu");
@@ -25,5 +26,6 @@ public class Main {
             default:
                 System.out.println("do");
         }
+
     }
 }

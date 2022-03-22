@@ -85,16 +85,23 @@ public class Boleteria {
         return precioTotal;
     }
 
-    public void showMoviesForToday(){
+    public List<String> showMoviesForToday(){
+        int index = 1;
+        List<String> todayMovies = new ArrayList<>();
+        todayMovies.add("");
+
         for (Sala sala:
              manager.getRoomsMap().values()) {
-            Utils.subheader("Movies for Room-" + sala.codigoSala);
-            ArrayList<String> moviesList = sala.getListaPeliculas();
-            for (int i = 0; i < moviesList.size(); i++) {
-                String movie = moviesList.get(i);
-                System.out.println("\t" + (i + 1) + ". " + movie);
+            for (String movie:
+                 sala.getListaPeliculas()) {
+                if (!todayMovies.contains(movie)){
+                    todayMovies.add(movie);
+                    System.out.println("\t" + index + ". " + movie);
+                    index++;
+                }
             }
         }
+        return todayMovies;
     }
 
 }

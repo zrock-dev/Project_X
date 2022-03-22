@@ -6,6 +6,7 @@ import java.util.*;
 public class Sala {
     static int capacidadAsientos;
     static String codigoSala;
+    int asientosVendidos;
     Map<String, ArrayList<Seat>> butacasMap;
     ArrayList<Pelicula> carteleraSala;
 
@@ -13,6 +14,14 @@ public class Sala {
         butacasMap = new Hashtable<>();
         this.codigoSala = codigoSala;
         carteleraSala = new ArrayList<>();
+    }
+
+    public int getCapacidadAsientos() {
+        return capacidadAsientos;
+    }
+
+    public void setCapacidadAsientos(int capacidadAsientos){
+        this.capacidadAsientos = capacidadAsientos;
     }
 
     public void setButacasMap(Map<String, ArrayList<Seat>> butacasMap) {
@@ -23,12 +32,24 @@ public class Sala {
         return carteleraSala;
     }
 
-    public void setCapacidad ( int seatsAmount){
-       capacidadAsientos = seatsAmount;
+    public void setCapacidad ( int seatsAmount) {
+        capacidadAsientos = seatsAmount;
+    }
+
+    public void setButacasMap(Map<String, ArrayList<Seat>> butacasMap) {
+        this.butacasMap = butacasMap;
     }
 
     private Map<String, ArrayList<Seat>> getButacasMap () {
         return butacasMap;
+    }
+
+    public void setAsientosVendidos(int asientosVendidos) {
+        this.asientosVendidos = asientosVendidos;
+    }
+
+    public int getAsientosVendidos() {
+        return asientosVendidos;
     }
 
     public void InsertarPelicula (Pelicula pelicula){

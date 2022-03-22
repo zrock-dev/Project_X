@@ -18,11 +18,11 @@ public class SeatManager {
 
     // fill room with unreserved seats.
     void populateRoom(Sala sala){
+        // key = "A", value: ArrayList<"A1", "A2", "A3",....,"A10">
         Map<String, ArrayList<Seat>> seatsTemp = new HashMap<>();
         int seatsCapacity = sala.capacidadAsientos;
         int columnsQuantity = seatsCapacity / rowQuantity;
         String[] columnCodes = Utils.generarAbc(columnsQuantity);
-        // key = "A", value: ArrayList<"A1", "A2", "A3",....,"A10">
 
         for (String columCode:
              columnCodes) {
