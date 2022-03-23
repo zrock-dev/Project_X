@@ -110,6 +110,7 @@ public class Boleteria {
     }
 
     public List<String> showMoviesForToday(){
+        subheader("Movies for today");
         int index = 1;
         List<String> todayMovies = new ArrayList<>();
         todayMovies.add(""); // to make the first comparison.
