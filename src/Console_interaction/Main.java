@@ -13,21 +13,25 @@ public class Main {
         Utils.header("Welcome to: " + boleteria.name + " movie theater");
         Menu m = new Menu();
 
-        // Menu
-        m.showGeneralMenu();
-
-        switch (Utils.getOption()){
-            case 1:
-                m.getMovie(boleteria);
-                m.buy(boleteria);
-                break;
-            case 2:
-                subheader("Registration Menu");
-                RegistradoraClientes.registerCustomer(getCustomerInfo());
-                break;
-            default:
-                System.out.println("do");
+        boolean condition = true;
+        while (condition){
+            boleteria.showMoviesForToday();
+            m.showGeneralMenu();
+            switch (Utils.getOption()){
+                case 1:
+                    m.getMovieChoice(boleteria);
+                    m.getSalaClient();
+                    m.buy(boleteria);
+                    break;
+                case 2:
+                    subheader("Registration Menu");
+                    RegistradoraClientes.registerCustomer(getCustomerInfo());
+                    break;
+                case 3:
+                    condition = false;
+                    break;
+            }
         }
-
+        subheader("We hope see you again");
     }
 }
