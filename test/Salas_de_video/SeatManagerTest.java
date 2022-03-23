@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SeatManagerTest {
-    Sala sala = new Sala("A");
+    /*Sala sala = new Sala("A");
     SeatManager seatManager = new SeatManager();
 
     @Test
@@ -26,5 +26,5 @@ class SeatManagerTest {
         sala.setCapacidad(50);
         seatManager.populateRoom(sala);
         assertEquals(5, sala.getButacasMap().size());
-    }
+    }*/
 }

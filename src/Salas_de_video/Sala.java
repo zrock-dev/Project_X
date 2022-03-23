@@ -1,10 +1,12 @@
 package Salas_de_video;
-import java.math.*;
+import Peliculas.BASE_DE_DATOS;
+import Peliculas.Pelicula;
+
 import java.util.*;
 
 public class Sala {
-    int capacidadAsientos;
-    String codigoSala;
+    static int capacidadAsientos;
+    static String codigoSala;
     Map<String, ArrayList<Seat>> butacasMap;
     ArrayList<Pelicula> carteleraSala;
 
@@ -18,10 +20,6 @@ public class Sala {
         this.butacasMap = butacasMap;
     }
 
-    public int getCapacidad() {
-        return capacidadAsientos;
-    }
-
     public ArrayList<Pelicula> getCarteleraSala() {
         return carteleraSala;
     }
@@ -29,7 +27,7 @@ public class Sala {
         this.capacidadAsientos = capacidadAsientos;
     }
 
-    public Map<String, ArrayList<Seat>> getButacasMap () {
+    private Map<String, ArrayList<Seat>> getButacasMap () {
         return butacasMap;
     }
 
@@ -58,14 +56,14 @@ public class Sala {
         int max = 16;
         while (carteleraSala.size()!=5){
             int index = (int) (Math.random() * max);
-            InsertarPelicula(BaseDeDatos.listaPeliculas().get(index));
+            InsertarPelicula(BASE_DE_DATOS.LISTA_DE_PELICULAS().get(index));
         }
     }
 
     public ArrayList<String> getListaPeliculas(){
         ArrayList<String> listaPelicula = new ArrayList<>();
         for (Pelicula pelicula : carteleraSala){
-            listaPelicula.add(pelicula.nombre);
+            listaPelicula.add(pelicula.NOMBRE);
         }
         return listaPelicula;
     }

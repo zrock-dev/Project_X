@@ -1,9 +1,9 @@
-package Salas_de_video;
+package Peliculas;
 import java.util.ArrayList;
 
-public class BaseDeDatos {
+public final class BASE_DE_DATOS {
 
-    public static ArrayList<Pelicula> listaPeliculas() {
+    public static  ArrayList<Pelicula> LISTA_DE_PELICULAS() {
         ArrayList<Pelicula>peliculasDisponibles = new ArrayList<>();
 
         //MIDSOMMAR
