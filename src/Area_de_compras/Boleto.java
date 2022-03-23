@@ -3,6 +3,7 @@ package Area_de_compras;
 import Registro.Cliente;
 import Salas_de_video.Pelicula;
 import Salas_de_video.Sala;
+import Valores_Constantes.Constants;
 
 public class Boleto {
     public double precioPelicula;
@@ -29,7 +30,7 @@ public class Boleto {
             precio = precioPelicula - (precioPelicula * .15);
             puntos = (int) (puntosBoleto - (puntosBoleto * .15));
         }
-        if (dia.equals(Semana.MIERCOLES)) {
+        if (dia.equals(Constants.PROMO_DAY)) {
             precio = precioPelicula - (precioPelicula * .5);
             puntos = (int) (puntosBoleto - (puntosBoleto * .5));
         }

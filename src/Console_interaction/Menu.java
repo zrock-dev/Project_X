@@ -50,11 +50,15 @@ public class Menu {
     }
 
     public void buy(Boleteria boleteria){
+        // Seat information to buy
+        int amountSeats = boleteria.manager.buySeats(codeSala, "besos");
+        boleteria.manager.showRoomSeatsAvailable(codeSala);
+
         System.out.print("Please enter your CI: "); String clientCI = sn.next();
         if (RegistradoraClientes.isCliente(clientCI)){
-            boleteria.comprarBoleto(clientCI, codeSala, peliculaClient);
+            boleteria.comprarBoleto(clientCI, codeSala, peliculaClient, amountSeats);
         }else{
-            boleteria.comprarBoleto(codeSala, peliculaClient);
+            boleteria.comprarBoleto(codeSala, peliculaClient, amountSeats);
         }
     }
 }

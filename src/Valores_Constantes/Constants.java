@@ -1,5 +1,7 @@
 package Valores_Constantes;
 
+import Area_de_compras.Semana;
+
 public class Constants {
     /// Capacidad para las salas.
     public static final int GRANDE = 100;
@@ -11,5 +13,8 @@ public class Constants {
 
     // Cantidad de salas en el cine
     public static final int NUMERO_SALAS = 7;
+
+    // Dia de descuento
+    public static final Semana PROMO_DAY = Semana.MIERCOLES;
 
 }
