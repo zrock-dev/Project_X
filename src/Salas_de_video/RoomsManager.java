@@ -1,6 +1,7 @@
 package Salas_de_video;
 
 import Registro.Cliente;
+import Valores_Constantes.Constants;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,15 +11,11 @@ import java.util.Map;
 import static Console_interaction.Utils.*;
 
 public class RoomsManager {
-    int largeRoomSize = 100;
-    int mediumRoomSize = 80;
-    int smallRoomSize = 50;
-    int roomsQuantity = 7;
 
     Map<String, Sala> roomsMap = new HashMap<>();
 
     public RoomsManager(){ // Todos los metodos que estan aqui necesitan encapsulacion.
-        generateRooms(roomsQuantity);
+        generateRooms();
         setRoomsCapacity();
         populateRooms();
     }
@@ -31,8 +28,8 @@ public class RoomsManager {
         return roomsMap.get(roomCode);
     }
 
-    public void generateRooms(int roomsAmount){
-        String[] roomsCodes = Utils.generarAbc(roomsAmount);
+    private void generateRooms(){
+        String[] roomsCodes = Utils.generarAbc(Constants.NUMERO_SALAS);
         for (String letterCode:
              roomsCodes) {
             Sala sala = new Sala(letterCode);
@@ -41,20 +38,20 @@ public class RoomsManager {
         }
     }
 
-    public void populateRooms(){
+    private void populateRooms(){
         Collection<Sala> listRooms =  roomsMap.values();
         SeatManager seatManager = new SeatManager();
         seatManager.fillRooms(listRooms);
     }
 
-    public void setRoomsCapacity(){
-        roomsMap.get("A").setCapacidadAsientos(largeRoomSize);
-        roomsMap.get("B").setCapacidadAsientos(largeRoomSize);
-        roomsMap.get("C").setCapacidadAsientos(largeRoomSize);
-        roomsMap.get("D").setCapacidadAsientos(mediumRoomSize);
-        roomsMap.get("E").setCapacidadAsientos(mediumRoomSize);
-        roomsMap.get("F").setCapacidadAsientos(smallRoomSize);
-        roomsMap.get("G").setCapacidadAsientos(smallRoomSize);
+    private void setRoomsCapacity(){
+        roomsMap.get("A").setCapacidadAsientos(Constants.GRANDE);
+        roomsMap.get("B").setCapacidadAsientos(Constants.GRANDE);
+        roomsMap.get("C").setCapacidadAsientos(Constants.GRANDE);
+        roomsMap.get("D").setCapacidadAsientos(Constants.MEDIANO);
+        roomsMap.get("E").setCapacidadAsientos(Constants.MEDIANO);
+        roomsMap.get("F").setCapacidadAsientos(Constants.PEQUENO);
+        roomsMap.get("G").setCapacidadAsientos(Constants.PEQUENO);
     }
 
     public void showRoomSeatsAvailable(String codeRoom){
@@ -69,7 +66,7 @@ public class RoomsManager {
         int letter = 0;
         for (ArrayList<Seat> seatsColumn:
              seatsRoom.values()) {
-            System.out.print((char) (65 + letter) + "| ");
+            System.out.print((char) (65 + letter) + "|");
             for (Seat seat:
                  seatsColumn) {
                 if (!seat.isOccupied()){
@@ -80,7 +77,7 @@ public class RoomsManager {
                 }
             }
             letter++;
-            System.out.println("|");
+            System.out.println("|" + "\t|-------|");
         }
     }
 
@@ -104,19 +101,19 @@ public class RoomsManager {
         Sala sala = roomsMap.get(roomCode);
         ArrayList<String> seatCodes = getSeatsCodes(sala.codigoSala);  // Obtain user seats
         Map<String, ArrayList<Seat>> seatsInRoom = sala.getButacasMap();
-        for (String seatCode:
+        for (String seatCodeClient:
                 seatCodes) {
-            String columCode = String.valueOf(seatCode.charAt(0)); // also seatCode
-            String aux = String.valueOf(seatCode.split(columCode)[1]);
+            String columCode = String.valueOf(seatCodeClient.charAt(0)); // also seatCodeClient
+            String aux = String.valueOf(seatCodeClient.split(columCode)[1]);
             int numberCode  = Integer.parseInt(aux) - 1;
 
             ArrayList<Seat> columSeats = seatsInRoom.get(columCode);
             Seat seatUnit = columSeats.get(numberCode);
-            if (seatUnit.getCode().equals(seatCode) && !seatUnit.isOccupied()){
+            if (seatUnit.getCode().equals(seatCodeClient) && !seatUnit.isOccupied()){
                 seatUnit.setReservedUserName(fullNameClient);
                 seatUnit.reserve();
             }else if (seatUnit.isOccupied()){
-                System.out.println("Seat: " + seatCode + " already reserved");
+                System.out.println("Seat: " + seatCodeClient + " already reserved");
             }
         }
         sala.setAsientosVendidos(seatCodes.size());
