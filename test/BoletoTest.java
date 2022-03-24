@@ -19,7 +19,8 @@ public class BoletoTest {
         Pelicula pelicula = new Pelicula("THE BATMAN","3 horas","Un perro vestido de negro q golpea a los malos", 10);
         Boleto boleto = new Boleto(cliente, 40, pelicula);
 
-        boleto.aplicarDescuento(MetodoPago.TARJETA, Semana.JUEVES);
+        int points = boleto.aplicarDescuento(MetodoPago.TARJETA, Semana.JUEVES);
+        cliente.sumarPuntos(points);
         assertEquals(35.2, boleto.precioPelicula);
         assertEquals(44, cliente.getPuntosTotales());
 
@@ -32,7 +33,8 @@ public class BoletoTest {
         pelicula.setGeneros("Animacion");
         Boleto boleto1 = new Boleto(cliente1, 60, pelicula);
 
-        boleto1.aplicarDescuento(MetodoPago.EFECTIVO, Semana.DOMINGO);
+        int puntos = boleto1.aplicarDescuento(MetodoPago.EFECTIVO, Semana.DOMINGO);
+        cliente1.sumarPuntos(puntos);
         assertEquals(51, boleto1.precioPelicula);
         assertEquals(42, cliente1.getPuntosTotales());
     }
@@ -44,8 +46,10 @@ public class BoletoTest {
         Pelicula pelicula = new Pelicula("THE BATMAN","3 horas","Un perro vestido de negro q golpea a los malos", 10);
         Boleto boleto2 = new Boleto(cliente2, 60, pelicula);
 
-        boleto2.aplicarDescuento(MetodoPago.EFECTIVO, Semana.MIERCOLES);
+        int puntos2 = boleto2.aplicarDescuento(MetodoPago.EFECTIVO, Semana.MIERCOLES);
+        cliente2.sumarPuntos(puntos2);
         assertEquals(30, boleto2.precioPelicula);
-        assertEquals(25, cliente2.getPuntosTotales());
+        int puntos = cliente2.getPuntosTotales();
+        assertEquals(25, puntos);
     }
 }

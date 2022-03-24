@@ -22,6 +22,7 @@ public class Main implements Constants {
                     m.getMovieChoice(boleteria);
                     m.getSalaClient();
                     m.buy(boleteria);
+                    m.showTotal(boleteria);
                     break;
                 case 2:
                     subheader("Registration Menu");

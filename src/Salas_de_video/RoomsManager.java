@@ -1,12 +1,10 @@
 package Salas_de_video;
 
 import Valores_Constantes.Constants;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-
 import static Console_interaction.Utils.*;
 
 public class RoomsManager implements Constants{
@@ -65,7 +63,7 @@ public class RoomsManager implements Constants{
         int letter = 0;
         for (ArrayList<Seat> seatsColumn:
              seatsRoom.values()) {
-            System.out.print((char) (65 + letter) + "|");
+            System.out.print((char) (65 + letter) + " |");
             for (Seat seat:
                  seatsColumn) {
                 if (!seat.isOccupied()){
@@ -108,7 +106,7 @@ public class RoomsManager implements Constants{
         return seatsClient;
     }
 
-    public int buySeats(String roomCode, String fullNameClient){
+    public int buySeats(String roomCode){
         //   A         1
         //letter ; number
 
@@ -124,7 +122,6 @@ public class RoomsManager implements Constants{
             ArrayList<Seat> columSeats = seatsInRoom.get(columCode);
             Seat seatUnit = columSeats.get(numberCode);
             if (seatUnit.getCode().equals(seatCodeClient) && !seatUnit.isOccupied()){
-                seatUnit.setReservedUserName(fullNameClient);
                 seatUnit.reserve();
             }else if (seatUnit.isOccupied()){
                 System.out.println("Seat: " + seatCodeClient + " already reserved");

@@ -2,7 +2,6 @@ package Salas_de_video;
 
 public class Seat {
     String code;
-    String reservedUserName;
     boolean occupied; // true = occupied
 
     public Seat(String code) {
@@ -10,12 +9,8 @@ public class Seat {
         occupied = false;
     }
 
-    public void setReservedUserName(String reservedUserName) {
-        this.reservedUserName = reservedUserName;
-    }
-
     public void reserve() {
-        this.occupied = true;
+        this.occupied = !occupied;
     }
 
     public String getCode() {

@@ -3,8 +3,6 @@ package Area_de_compras;
 import Registro.Cliente;
 import Salas_de_video.Pelicula;
 import Valores_Constantes.Constants;
-import static Console_interaction.Utils.*;
-
 
 public class Boleto implements Constants{
     public double precioPelicula;
@@ -48,6 +46,6 @@ public class Boleto implements Constants{
             puntos = (int) (puntosBoleto - (puntosBoleto * .5));
         }
         precioPelicula = precio;
-        return puntosBoleto;
+        return puntos;
     }
 }
