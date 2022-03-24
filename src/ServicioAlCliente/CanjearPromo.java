@@ -14,15 +14,15 @@ public class CanjearPromo {
             case ("boleto"):
 
                 if (clientePuntosTotales >= puntosPremio && premio.equals(Premios.PRIMERAOPCION)) {
-                    cliente.setCantidadTicketsGratis(1);
                     cliente.canjearPuntos(premio.getPuntosPremio());
+                    cliente.sumarTicketGratis(1);
                 }
                 if (clientePuntosTotales >= puntosPremio && premio.equals(Premios.SEGUNDAOPCION)) {
-                    cliente.setCantidadTicketsGratis(2);
+                    cliente.sumarTicketGratis(2);
                     cliente.canjearPuntos(premio.getPuntosPremio());
                 }
                 if (clientePuntosTotales >= puntosPremio && premio.equals(Premios.TERCERAOPCION)) {
-                    cliente.setCantidadTicketsGratis(3);
+                    cliente.sumarTicketGratis(3);
                     cliente.canjearPuntos(premio.getPuntosPremio());
                 }
 

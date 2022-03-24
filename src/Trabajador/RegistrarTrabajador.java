@@ -8,7 +8,7 @@ public class RegistrarTrabajador {
 
     public static void registrarTrabajador(String ci, String fullName, String nacionalidad, String fechaNacimiento,SectorLaboral sectorLaboral){
         if (registroTrabajador.containsKey(ci)){
-            System.out.println("Customer already registered");
+            System.out.println("Worker already registered");
         }else {
             registroTrabajador.put(ci, new Trabajador(ci, fullName, nacionalidad, fechaNacimiento, sectorLaboral));
             System.out.println("Successfully Registered");

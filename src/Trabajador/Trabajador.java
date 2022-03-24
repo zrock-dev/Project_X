@@ -8,9 +8,10 @@ public class Trabajador extends Persona {
 
     SectorLaboral sectorLaboral;
 
-    public Trabajador(String ci, String fullName, String nacionalidad, String fechaNacimiento,SectorLaboral sectorLaboral) {
+    public Trabajador(String ci, String fullName, String nacionalidad, String fechaNacimiento
+            ,SectorLaboral sectorLaboral) {
         super(ci, fullName, nacionalidad, fechaNacimiento);
-        this.sectorLaboral=sectorLaboral;
+        this.sectorLaboral = sectorLaboral;
     }
 
     public SectorLaboral getSectorLaboral() {
