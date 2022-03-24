@@ -42,7 +42,7 @@ public class Utils {
         System.out.print("CI: ");          customerData.add(sn.next());
         System.out.print("Full Name: ");   customerData.add(sn.next());
         System.out.print("Nationality: "); customerData.add(sn.next());
-        System.out.print("Birth Date: ");  customerData.add(sn.next()); // Specify date format
+        System.out.print("Birth Date(DD/MM/AAAA): ");  customerData.add(sn.next()); // Specify date format
         return customerData;
     }
 }
