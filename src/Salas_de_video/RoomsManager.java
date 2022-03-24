@@ -1,6 +1,5 @@
 package Salas_de_video;
 
-import Registro.Cliente;
 import Valores_Constantes.Constants;
 
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ public class RoomsManager {
 
     Map<String, Sala> roomsMap = new HashMap<>();
 
-    public RoomsManager(){ // Todos los metodos que estan aqui necesitan encapsulacion.
+    public RoomsManager(){
         generateRooms();
         setRoomsCapacity();
         populateRooms();
@@ -55,7 +54,7 @@ public class RoomsManager {
     }
 
     public void showRoomSeatsAvailable(String codeRoom){
-        subheader("Available seats for Sala" + codeRoom);
+        subheader("Available seats for Sala - " + codeRoom);
         for (int i = 1; i <= 10; i++) {
             System.out.print("\t" + i + " ");
         }
@@ -77,19 +76,34 @@ public class RoomsManager {
                 }
             }
             letter++;
-            System.out.println("|" + "\t|-------|");
+            System.out.println("|" + "\t|##########|");
         }
+        showSimpleLine();
     }
 
-    public ArrayList<String> getSeatsCodes(String salaCode){
+    public ArrayList<String> getClientSeatsCodes(String salaCode){
         showRoomSeatsAvailable(salaCode);
         showSimpleLine();
-        String option = "Y";
         ArrayList<String> seatsClient = new ArrayList<>();
-        while (option.equals("Y")){
-            System.out.print("Please insert the code of your Seat: ");
+        showSimpleLine();
+        System.out.println("How many seats do you want: "); int option = getOption();
+        System.out.println("Please insert the code of your Seat: ");
+        System.out.print("Seats: ");
+        for (int addedSeat = 0; addedSeat < option; addedSeat++) {
+            // seatsClient = A2
             seatsClient.add(sn.next());
-            System.out.print("Do you want to buy another seat: Y/N: "); option = sn.next();
+
+            /*
+ Needs work
+            String lastAddedSeat  = seatsClient.get(addedSeat);
+            if (seatsClient.contains(lastAddedSeat)){ // To prevent repeated items.
+                System.out.println("Seat already added, try again.");
+                seatsClient.remove(lastAddedSeat);
+                // remove printed text
+                continue;
+            }
+*/
+            System.out.print(seatsClient + ", ");
         }
         return seatsClient;
     }
@@ -99,7 +113,7 @@ public class RoomsManager {
         //letter ; number
 
         Sala sala = roomsMap.get(roomCode);
-        ArrayList<String> seatCodes = getSeatsCodes(sala.codigoSala);  // Obtain user seats
+        ArrayList<String> seatCodes = getClientSeatsCodes(sala.codigoSala);  // Obtain user seats
         Map<String, ArrayList<Seat>> seatsInRoom = sala.getButacasMap();
         for (String seatCodeClient:
                 seatCodes) {

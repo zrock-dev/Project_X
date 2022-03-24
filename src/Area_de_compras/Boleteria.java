@@ -71,7 +71,7 @@ public class Boleteria {
         }
     }
 
-    public void comprarBoleto(String ci, String codigoSala, Pelicula pelicula){
+    public void comprarBoleto(String ci, String codigoSala, Pelicula pelicula, int seatsQuantity){
 
         Cliente cliente = RegistradoraClientes.getCliente(ci);
         String fullNameClient = cliente.getFullName();
@@ -82,13 +82,11 @@ public class Boleteria {
         if (cliente.getCantidadTicketsGratis() == 0){
             Boleto boleto = new Boleto(cliente, precioPelicula, pelicula);
             boleto.aplicarDescuento(paymentType, Semana.whatDayIsToday());
-            int amountSeats = manager.buySeats(codigoSala, cliente.getFullName());
-            precioTotal = (int) (boleto.precioPelicula) * amountSeats;
+            precioTotal = (int) (boleto.precioPelicula) * seatsQuantity;
         }else {
             // Este ticket ganado por premio no te permite ganar mas puntos.
             // Y no aplica a descuentos.
-            int amountSeats = manager.buySeats(codigoSala, cliente.getFullName());
-            precioTotal = (int) (precioPelicula) * amountSeats;
+            precioTotal = (int) (precioPelicula) * seatsQuantity;
 
             cliente.usarTicketGratis();
             System.out.println("Su ticket ha sido utilizado.");
@@ -96,15 +94,14 @@ public class Boleteria {
     }
 
     // Comprar boleto sin CI
-    public void comprarBoleto(String codigoSala, Pelicula pelicula) {
+    public void comprarBoleto(String codigoSala, Pelicula pelicula, int seatsQuantity) {
         subheader("Receipt Infomation");
         Cliente cliente = new Cliente(Utils.getCustomerInfo());
         getInfoCompra();
 
         Boleto boleto = new Boleto(cliente, precioPelicula, pelicula);
         boleto.aplicarDescuento(paymentType, Semana.whatDayIsToday());
-        int amountSeats = manager.buySeats(codigoSala, cliente.getFullName());
-        precioTotal = (int) (boleto.precioPelicula) * amountSeats;
+        precioTotal = (int) (boleto.precioPelicula) * seatsQuantity;
     }
 
     // agregue esto para hacer el test
@@ -113,6 +110,7 @@ public class Boleteria {
     }
 
     public List<String> showMoviesForToday(){
+        subheader("Movies for today");
         int index = 1;
         List<String> todayMovies = new ArrayList<>();
         todayMovies.add(""); // to make the first comparison.
