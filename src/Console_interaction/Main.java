@@ -6,10 +6,10 @@ import Valores_Constantes.Constants;
 import static Console_interaction.Utils.getCustomerInfo;
 import static Console_interaction.Utils.subheader;
 
-public class Main {
+public class Main implements Constants {
 
     public static void main(String[] args) {
-        Boleteria boleteria = new Boleteria(Constants.NOMBRE_BOLETERIA);
+        Boleteria boleteria = new Boleteria(NOMBRE_BOLETERIA);
         Utils.header("Welcome to: " + boleteria.name + " movie theater");
         Menu m = new Menu();
 

@@ -2,7 +2,7 @@ package Valores_Constantes;
 
 import Area_de_compras.Semana;
 
-public class Constants {
+public interface Constants {
     /// Capacidad para las salas.
     public static final int GRANDE = 100;
     public static final int MEDIANO = 80;
