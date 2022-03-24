@@ -1,6 +1,6 @@
 package Area_de_compras;
 
-import Registro.Cliente;
+import Cliente.Cliente;
 import Salas_de_video.Pelicula;
 import Valores_Constantes.Constants;
 

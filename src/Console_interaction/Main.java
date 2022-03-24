@@ -1,6 +1,6 @@
 package Console_interaction;
 import Area_de_compras.Boleteria;
-import Registro.RegistradoraClientes;
+import Cliente.RegistradoraClientes;
 import Valores_Constantes.Constants;
 
 import static Console_interaction.Utils.getCustomerInfo;

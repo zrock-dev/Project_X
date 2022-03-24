@@ -1,6 +1,6 @@
 package Salas_de_video;
 
-import Registro.Cliente;
+import Cliente.Cliente;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
