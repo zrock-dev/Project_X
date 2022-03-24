@@ -1,9 +1,8 @@
-import Registro.Cliente;
+import Area_Cliente.Cliente;
 import ServicioAlCliente.Premios;
 import ServicioAlCliente.CanjearPromo;
 import org.junit.jupiter.api.Test;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

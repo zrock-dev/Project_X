@@ -1,11 +1,8 @@
-import Area_de_compras.Boleteria;
 import Area_de_compras.Boleto;
 import Area_de_compras.MetodoPago;
 import Area_de_compras.Semana;
-import Registro.Cliente;
-import Registro.RegistradoraClientes;
-import Salas_de_video.Pelicula;
-import Salas_de_video.Sala;
+import Area_Cliente.Cliente;
+import Area_Peliculas.Pelicula;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

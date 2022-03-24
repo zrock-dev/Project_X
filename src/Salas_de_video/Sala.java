@@ -1,4 +1,7 @@
 package Salas_de_video;
+import Area_Peliculas.BaseDeDatos;
+import Area_Peliculas.Pelicula;
+
 import java.util.*;
 
 public class Sala {
@@ -74,7 +77,7 @@ public class Sala {
     public ArrayList<String> getListaPeliculas(){
         ArrayList<String> listaPelicula = new ArrayList<>();
         for (Pelicula pelicula : carteleraSala){
-            listaPelicula.add(pelicula.nombre);
+            listaPelicula.add(pelicula.getNombre());
         }
         return listaPelicula;
     }
@@ -82,7 +85,7 @@ public class Sala {
     public Pelicula getPelicula(String namePelicula){
         for (Pelicula pelicula:
                 carteleraSala) {
-            if (pelicula.nombre.equals(namePelicula)){
+            if (pelicula.getNombre().equals(namePelicula)){
                 return pelicula;
             }
         }

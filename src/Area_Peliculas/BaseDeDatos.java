@@ -1,4 +1,4 @@
-package Salas_de_video;
+package Area_Peliculas;
 import java.util.ArrayList;
 
 public class BaseDeDatos {

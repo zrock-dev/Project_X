@@ -1,46 +1,31 @@
-package Registro;
+package Area_Cliente;
+
+import Clases_Padre.Persona;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cliente {
+public class Cliente extends Persona {
     int puntosTotales;
-    String ci, fullName, nacionalidad, fechaNacimiento;
     int cantidadTicketsGratis;
     ArrayList<String> premioCandyBar;
-    // Fecha de nacimiento : 03/01/2001
 
     public Cliente(List<String> customerData){ // customerData = [ci, fullName, nationality, birthDate]
-        this.ci = customerData.get(0);
-        this.fullName = customerData.get(1);
-        this.nacionalidad = customerData.get(2);
-        this.fechaNacimiento = customerData.get(3);
+        super(customerData.get(0),customerData.get(1),customerData.get(2),customerData.get(3));
     }
 
-
     public Cliente(String ci, String fullName, String nacionalidad, String fechaNacimiento) {
-        this.ci = ci;
-        this.fullName = fullName;
-        this.nacionalidad = nacionalidad;
-        this.fechaNacimiento = fechaNacimiento;
-        premioCandyBar = new ArrayList<>();
+        super(ci,fullName,nacionalidad,fechaNacimiento);
     }
 
     public Cliente( String fullName, String fechaNacimiento) {
-        this.fullName = fullName;
-        this.fechaNacimiento = fechaNacimiento;
+
+        super(fullName,fechaNacimiento);
     }
+
 
     public void sumarPuntos(int cantidadSumar){
         puntosTotales = cantidadSumar + puntosTotales;
-    }
-
-    public String getCi() {
-        return ci; // para la llave
-    }
-
-    public int getEdad() {  // edad del cliente
-        return 2022 - Integer.parseInt(fechaNacimiento.split("/")[2]);
     }
 
     public int getPuntosTotales() {
@@ -67,10 +52,6 @@ public class Cliente {
 
     public void usarTicketGratis(){
         cantidadTicketsGratis -= 1;
-    }
-
-    public String getFullName() {
-        return fullName;
     }
 
     //ESTAS DOS FUNCIONES LAS USO PARA AGREGAR UN PREMIO DEL TIPO LITERAL (LAS DEL CANDYBAR) AL CLIENTE

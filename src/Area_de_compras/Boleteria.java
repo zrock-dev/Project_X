@@ -1,8 +1,8 @@
 package Area_de_compras;
 import Console_interaction.Utils;
-import Registro.Cliente;
-import Registro.RegistradoraClientes;
-import Salas_de_video.Pelicula;
+import Area_Cliente.Cliente;
+import Area_Cliente.RegistradoraClientes;
+import Area_Peliculas.Pelicula;
 import Salas_de_video.RoomsManager;
 import Salas_de_video.Sala;
 
