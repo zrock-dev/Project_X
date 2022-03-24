@@ -1,4 +1,4 @@
-import Cliente.Cliente;
+import Area_Cliente.Cliente;
 import org.junit.jupiter.api.Test;
 
 class ClienteTest {

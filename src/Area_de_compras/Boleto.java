@@ -1,7 +1,7 @@
 package Area_de_compras;
 
-import Cliente.Cliente;
-import Salas_de_video.Pelicula;
+import Area_Cliente.Cliente;
+import Area_Peliculas.Pelicula;
 import Valores_Constantes.Constants;
 
 public class Boleto implements Constants{

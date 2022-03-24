@@ -1,8 +1,6 @@
-package Trabajador;
+package Area_Trabajador;
 
 import Clases_Padre.Persona;
-
-import java.util.ArrayList;
 
 public class Trabajador extends Persona {
 

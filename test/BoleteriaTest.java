@@ -1,7 +1,7 @@
 import Area_de_compras.Boleteria;
 import Area_de_compras.ModoPresentacion;
-import Cliente.Cliente;
-import Salas_de_video.Pelicula;
+import Area_Cliente.Cliente;
+import Area_Peliculas.Pelicula;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

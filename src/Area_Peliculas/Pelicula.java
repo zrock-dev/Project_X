@@ -1,7 +1,10 @@
-package Salas_de_video;
+package Area_Peliculas;
+import Salas_de_video.Utils;
+import Valores_Constantes.Constants;
+
 import java.util.ArrayList;
 
-public class Pelicula {
+public class Pelicula implements Constants {
     String nombre;
     String duracion;
     String descripcion;
@@ -10,15 +13,15 @@ public class Pelicula {
 
     public Pelicula(String nombre, String duracion, String descripcion, int calificacion){
         generos = new ArrayList<>();
-        this.nombre=nombre;
-        this.calificacion=calificacion;
-        this.duracion=duracion;
-        this.descripcion=descripcion;
+        this.nombre = nombre;
+        this.calificacion = calificacion;
+        this.duracion = duracion;
+        this.descripcion = descripcion;
     }
 
     public void setGeneros(String genero){
-        for (int i=0;i<Utils.generosPelicula.length;i++){
-            if (genero.equals(Utils.generosPelicula[i])){
+        for (int i = 0; i< GENEROS_PELICULA.length; i++){
+            if (genero.equals(GENEROS_PELICULA[i])){
                 generos.add(genero);
                 break;
             }
@@ -34,7 +37,6 @@ public class Pelicula {
     public boolean getAnimacion(){
         return generos.contains("Animacion");
     }
-
     public String getNombre() {
         return nombre;
     }

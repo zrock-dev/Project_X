@@ -1,5 +1,5 @@
 package ServicioAlCliente;
-import Cliente.Cliente;
+import Area_Cliente.Cliente;
 
 import static Console_interaction.Utils.sn;
 

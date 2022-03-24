@@ -1,4 +1,4 @@
-import Cliente.Cliente;
+import Area_Cliente.Cliente;
 import ServicioAlCliente.Premios;
 import ServicioAlCliente.CanjearPromo;
 import org.junit.jupiter.api.Test;

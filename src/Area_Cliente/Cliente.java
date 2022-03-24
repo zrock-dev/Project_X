@@ -1,4 +1,4 @@
-package Cliente;
+package Area_Cliente;
 
 import Clases_Padre.Persona;
 

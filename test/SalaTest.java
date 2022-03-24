@@ -1,4 +1,4 @@
-import Salas_de_video.Pelicula;
+import Area_Peliculas.Pelicula;
 import Salas_de_video.Sala;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package Trabajador;
+package Area_Trabajador;
 
 import java.util.HashMap;
 import java.util.Map;

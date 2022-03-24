@@ -1,8 +1,8 @@
 package Console_interaction;
 
 import Area_de_compras.Boleteria;
-import Cliente.RegistradoraClientes;
-import Salas_de_video.Pelicula;
+import Area_Cliente.RegistradoraClientes;
+import Area_Peliculas.Pelicula;
 import Salas_de_video.Sala;
 import java.util.List;
 
