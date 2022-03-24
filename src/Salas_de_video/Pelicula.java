@@ -34,4 +34,8 @@ public class Pelicula {
     public boolean getAnimacion(){
         return generos.contains("Animacion");
     }
+
+    public String getNombre() {
+        return nombre;
+    }
 }

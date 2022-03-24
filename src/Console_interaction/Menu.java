@@ -9,11 +9,11 @@ import java.util.List;
 import static Console_interaction.Utils.*;
 
 public class Menu {
-    public List<String> todayMovies;
-    public Pelicula peliculaClient;
-    public String clientSalaCode;
-    public List<Sala> availableMovieInSalas;
+    Pelicula peliculaClient;
+    String clientSalaCode;
+    List<Sala> availableMovieInSalas;
     String clientMovieChoice;
+    String clientCI;
 
     public void showGeneralMenu(){
         subheader("General Menu");
@@ -22,7 +22,7 @@ public class Menu {
 
     public void getMovieChoice(Boleteria boleteria){
         // Cartelera
-        todayMovies = boleteria.showMoviesForToday();
+        List<String> todayMovies = boleteria.showMoviesForToday();
         System.out.println("\n" +
                 "Which movie do you want to see: ");
         clientMovieChoice = todayMovies.get(getOption() - 1);
@@ -52,14 +52,29 @@ public class Menu {
 
     public void buy(Boleteria boleteria){
         // Seat information to buy
-        int amountSeats = boleteria.manager.buySeats(clientSalaCode, "besos"); // needs fix
+        int amountSeats = boleteria.manager.buySeats(clientSalaCode); // needs fix
         boleteria.manager.showRoomSeatsAvailable(clientSalaCode);
 
-        System.out.print("Please enter your CI: "); String clientCI = sn.next();
+        System.out.print("Please enter your CI: "); clientCI = sn.next();
         if (RegistradoraClientes.isCliente(clientCI)){
-            boleteria.comprarBoleto(clientCI,clientSalaCode,peliculaClient, amountSeats);
+            boleteria.comprarBoleto(clientCI, clientSalaCode, peliculaClient, amountSeats);
         }else{
             boleteria.comprarBoleto(peliculaClient, amountSeats);
         }
+    }
+
+    public void showTotal(Boleteria boleteria){
+        subheader("Receipt");
+        System.out.println("Customer ID: " + clientCI);
+        showSimpleLine();
+        System.out.print("\tMovies");
+        int aux = characters - "\tMovies".length() - "Sala".length()*2;
+        System.out.println(" ".repeat(aux) + "Sala");
+        showSimpleLine();
+        int fixedSpace = characters - peliculaClient.getNombre().length() - 7;
+        System.out.println("\t" + peliculaClient.getNombre() + " ".repeat(fixedSpace)
+                + clientSalaCode);
+        showSimpleLine();
+        System.out.println("\tTotal Price: " + boleteria.getPrecioTotal());
     }
 }
