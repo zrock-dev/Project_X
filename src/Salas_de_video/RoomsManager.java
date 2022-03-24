@@ -9,7 +9,7 @@ import java.util.Map;
 
 import static Console_interaction.Utils.*;
 
-public class RoomsManager {
+public class RoomsManager implements Constants{
 
     Map<String, Sala> roomsMap = new HashMap<>();
 
@@ -28,7 +28,7 @@ public class RoomsManager {
     }
 
     private void generateRooms(){
-        String[] roomsCodes = Utils.generarAbc(Constants.NUMERO_SALAS);
+        String[] roomsCodes = Utils.generarAbc(NUMERO_SALAS);
         for (String letterCode:
              roomsCodes) {
             Sala sala = new Sala(letterCode);
@@ -44,13 +44,13 @@ public class RoomsManager {
     }
 
     private void setRoomsCapacity(){
-        roomsMap.get("A").setCapacidadAsientos(Constants.GRANDE);
-        roomsMap.get("B").setCapacidadAsientos(Constants.GRANDE);
-        roomsMap.get("C").setCapacidadAsientos(Constants.GRANDE);
-        roomsMap.get("D").setCapacidadAsientos(Constants.MEDIANO);
-        roomsMap.get("E").setCapacidadAsientos(Constants.MEDIANO);
-        roomsMap.get("F").setCapacidadAsientos(Constants.PEQUENO);
-        roomsMap.get("G").setCapacidadAsientos(Constants.PEQUENO);
+        roomsMap.get("A").setCapacidadAsientos(GRANDE);
+        roomsMap.get("B").setCapacidadAsientos(GRANDE);
+        roomsMap.get("C").setCapacidadAsientos(GRANDE);
+        roomsMap.get("D").setCapacidadAsientos(MEDIANO);
+        roomsMap.get("E").setCapacidadAsientos(MEDIANO);
+        roomsMap.get("F").setCapacidadAsientos(PEQUENO);
+        roomsMap.get("G").setCapacidadAsientos(PEQUENO);
     }
 
     public void showRoomSeatsAvailable(String codeRoom){
