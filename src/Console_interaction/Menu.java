@@ -57,9 +57,9 @@ public class Menu {
 
         System.out.print("Please enter your CI: "); String clientCI = sn.next();
         if (RegistradoraClientes.isCliente(clientCI)){
-            boleteria.comprarBoleto(clientCI, clientSalaCode, peliculaClient, amountSeats);
+            boleteria.comprarBoleto(clientCI,clientSalaCode,peliculaClient, amountSeats);
         }else{
-            boleteria.comprarBoleto(clientSalaCode, peliculaClient, amountSeats);
+            boleteria.comprarBoleto(peliculaClient, amountSeats);
         }
     }
 }

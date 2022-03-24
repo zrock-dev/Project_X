@@ -8,6 +8,7 @@ public class Constants {
     public static final int MEDIANO = 80;
     public static final int PEQUENO = 50;
 
+
     // Nombre de la boleteria
     public static final String NOMBRE_BOLETERIA = "Cine Center";
 
@@ -16,5 +17,11 @@ public class Constants {
 
     // Dia de descuento
     public static final Semana PROMO_DAY = Semana.MIERCOLES;
+
+    //Dia nceseario para la promo de tarjeta
+    public static final Semana PROMO_DAY_TARJETA = Semana.JUEVES;
+
+    //Cantidad de puntos por boleto comprado
+    public static final int PUNTOS_POR_BOLETO = 50;
 
 }

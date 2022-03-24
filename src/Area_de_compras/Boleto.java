@@ -2,27 +2,36 @@ package Area_de_compras;
 
 import Registro.Cliente;
 import Salas_de_video.Pelicula;
-import Salas_de_video.Sala;
 import Valores_Constantes.Constants;
+import static Console_interaction.Utils.*;
+
 
 public class Boleto {
     public double precioPelicula;
-    int puntosBoleto = 50;
+    int puntosBoleto = Constants.PUNTOS_POR_BOLETO;
     Cliente cliente;
     Pelicula pelicula;
+    int edadCliente;
 
     public Boleto(Cliente cliente, int precioPelicula, Pelicula pelicula){
         this.cliente = cliente;
         this.precioPelicula = precioPelicula;
         this.pelicula = pelicula;
+        this.edadCliente = cliente.getEdad();
     }
 
-    public void aplicarDescuento(MetodoPago metodo, Semana dia){
-        int edadCliente = cliente.getEdad();
+    public Boleto(int edadCliente, int precioPelicula, Pelicula pelicula){
+        this.edadCliente = edadCliente;
+        this.precioPelicula = precioPelicula;
+        this.pelicula = pelicula;
+    }
+
+    public int aplicarDescuento(MetodoPago metodo, Semana dia){
+
         double precio = precioPelicula;
         int puntos = puntosBoleto;
 
-        if (metodo.equals(MetodoPago.TARJETA) && dia.equals(Semana.JUEVES)) {
+        if (metodo.equals(MetodoPago.TARJETA) && dia.equals(Constants.PROMO_DAY_TARJETA)) {
             precio = precioPelicula - (precioPelicula * .12);
             puntos = (int) (puntosBoleto - (puntosBoleto * .12));
         }
@@ -39,6 +48,6 @@ public class Boleto {
             puntos = (int) (puntosBoleto - (puntosBoleto * .5));
         }
         precioPelicula = precio;
-        cliente.sumarPuntos(puntos);
+        return puntosBoleto;
     }
 }

@@ -81,7 +81,8 @@ public class Boleteria {
 
         if (cliente.getCantidadTicketsGratis() == 0){
             Boleto boleto = new Boleto(cliente, precioPelicula, pelicula);
-            boleto.aplicarDescuento(paymentType, Semana.whatDayIsToday());
+            int punotosCliente = boleto.aplicarDescuento(paymentType, Semana.whatDayIsToday());
+            cliente.canjearPuntos(punotosCliente);
             precioTotal = (int) (boleto.precioPelicula) * seatsQuantity;
         }else {
             // Este ticket ganado por premio no te permite ganar mas puntos.
@@ -94,14 +95,15 @@ public class Boleteria {
     }
 
     // Comprar boleto sin CI
-    public void comprarBoleto(String codigoSala, Pelicula pelicula, int seatsQuantity) {
+    public void comprarBoleto(Pelicula pelicula, int seatsQuantity) {
         subheader("Receipt Infomation");
-        Cliente cliente = new Cliente(Utils.getCustomerInfo());
+        System.out.print("Age: ");
+        int edadCliente = sn.nextInt();
         getInfoCompra();
 
-        Boleto boleto = new Boleto(cliente, precioPelicula, pelicula);
-        boleto.aplicarDescuento(paymentType, Semana.whatDayIsToday());
-        precioTotal = (int) (boleto.precioPelicula) * seatsQuantity;
+        Boleto boletoSinCi = new Boleto(edadCliente, precioPelicula, pelicula);
+        boletoSinCi.aplicarDescuento(paymentType, Semana.whatDayIsToday());
+        precioTotal = (int) (boletoSinCi.precioPelicula) * seatsQuantity;
     }
 
     // agregue esto para hacer el test
