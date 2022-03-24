@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BoletoTest {
-    
+
     @Test
     public void testDescuentosJuevesconTarjeta() {
         Cliente cliente = new Cliente("10101001", "DIEGO FIGUEROA", "Boliviano",
@@ -19,20 +19,23 @@ public class BoletoTest {
         Pelicula pelicula = new Pelicula("THE BATMAN","3 horas","Un perro vestido de negro q golpea a los malos", 10);
         Boleto boleto = new Boleto(cliente, 40, pelicula);
 
-        boleto.aplicarDescuento(MetodoPago.TARJETA, Semana.JUEVES);
+        int puntosCliente = boleto.aplicarDescuento(MetodoPago.TARJETA, Semana.JUEVES);
+        cliente.sumarPuntos(puntosCliente);
+
         assertEquals(35.2, boleto.precioPelicula);
         assertEquals(44, cliente.getPuntosTotales());
 
     }
     @Test
     public void testDescuentoAnimacionMenores(){
-        Cliente cliente1 = new Cliente("10101001", "DIEGO FIGUEROA", "Boliviano",
-                "03/01/2018");
+        Cliente cliente1 = new Cliente("10101001", "DIEGO FIGUEROA", "Boliviano", "03/01/2018");
         Pelicula pelicula = new Pelicula("PEPPA PIG","2 horas","Un cerdo que habla", 10);
         pelicula.setGeneros("Animacion");
         Boleto boleto1 = new Boleto(cliente1, 60, pelicula);
 
-        boleto1.aplicarDescuento(MetodoPago.EFECTIVO, Semana.DOMINGO);
+        int puntosCliente = boleto1.aplicarDescuento(MetodoPago.EFECTIVO, Semana.DOMINGO);
+        cliente1.sumarPuntos(puntosCliente);
+
         assertEquals(51, boleto1.precioPelicula);
         assertEquals(42, cliente1.getPuntosTotales());
     }
@@ -44,7 +47,9 @@ public class BoletoTest {
         Pelicula pelicula = new Pelicula("THE BATMAN","3 horas","Un perro vestido de negro q golpea a los malos", 10);
         Boleto boleto2 = new Boleto(cliente2, 60, pelicula);
 
-        boleto2.aplicarDescuento(MetodoPago.EFECTIVO, Semana.MIERCOLES);
+        int puntosCliente = boleto2.aplicarDescuento(MetodoPago.EFECTIVO, Semana.MIERCOLES);
+        cliente2.sumarPuntos(puntosCliente);
+
         assertEquals(30, boleto2.precioPelicula);
         assertEquals(25, cliente2.getPuntosTotales());
     }

@@ -81,8 +81,8 @@ public class Boleteria {
 
         if (cliente.getCantidadTicketsGratis() == 0){
             Boleto boleto = new Boleto(cliente, precioPelicula, pelicula);
-            int punotosCliente = boleto.aplicarDescuento(paymentType, Semana.whatDayIsToday());
-            cliente.canjearPuntos(punotosCliente);
+            int puntosCliente = boleto.aplicarDescuento(paymentType, Semana.whatDayIsToday());
+            cliente.sumarPuntos(puntosCliente);
             precioTotal = (int) (boleto.precioPelicula) * seatsQuantity;
         }else {
             // Este ticket ganado por premio no te permite ganar mas puntos.
@@ -118,9 +118,9 @@ public class Boleteria {
         todayMovies.add(""); // to make the first comparison.
 
         for (Sala sala:
-             manager.getRoomsMap().values()) {
+                manager.getRoomsMap().values()) {
             for (String movie:
-                 sala.getListaPeliculas()) {
+                    sala.getListaPeliculas()) {
                 if (!todayMovies.contains(movie)){
                     todayMovies.add(movie);
                     System.out.println("\t" + index + ". " + movie);
@@ -136,7 +136,7 @@ public class Boleteria {
     public List<Sala> availableMovie(String movie){
         List<Sala> movieOnSalas = new ArrayList<>();
         for (Sala sala:
-             manager.getRoomsMap().values()) {
+                manager.getRoomsMap().values()) {
             if (sala.getListaPeliculas().contains(movie)){
                 movieOnSalas.add(sala);
             }
